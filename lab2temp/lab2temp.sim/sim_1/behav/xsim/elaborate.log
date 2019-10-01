@@ -1,21 +1,12 @@
 Vivado Simulator 2019.1
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 2b86087588554b24ace8dd6ed02d8e34 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot TOP_behav xil_defaultlib.TOP xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 2b86087588554b24ace8dd6ed02d8e34 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_Wrapper_behav xil_defaultlib.test_Wrapper xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling package vl.vl_types
-Compiling module xil_defaultlib.glbl
 Compiling module xil_defaultlib.RegFile
 Compiling module xil_defaultlib.Extend
 Compiling module xil_defaultlib.Decoder
@@ -29,7 +20,7 @@ Compiling module xil_defaultlib.Shifter
 Compiling module xil_defaultlib.ALU
 Compiling module xil_defaultlib.ProgramCounter
 Compiling module xil_defaultlib.ARM
-Compiling module xil_defaultlib.Wrapper(N_LEDs_OUT=8,N_DIPs=16,N...
-Compiling architecture rtl of entity xil_defaultlib.UART [\UART(baud_rate=9600,clock_frequ...]
-Compiling architecture arch_top of entity xil_defaultlib.top
-Built simulation snapshot TOP_behav
+Compiling module xil_defaultlib.Wrapper
+Compiling module xil_defaultlib.test_Wrapper
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_Wrapper_behav

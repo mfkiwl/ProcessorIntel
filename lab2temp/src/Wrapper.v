@@ -94,8 +94,9 @@ initial begin
 			INSTR_MEM[0] = 32'hE59F6214; 
 			INSTR_MEM[1] = 32'hE59F7214; 
 			INSTR_MEM[2] = 32'hE0877007; 
-			INSTR_MEM[3] = 32'hEAFFFFFE; 
-			for(i = 4; i < 128; i = i+1) begin 
+			INSTR_MEM[3] = 32'hE0476006; 
+			INSTR_MEM[4] = 32'hEAFFFFFE; 
+			for(i = 5; i < 128; i = i+1) begin 
 				INSTR_MEM[i] = 32'h0; 
 			end
 end
