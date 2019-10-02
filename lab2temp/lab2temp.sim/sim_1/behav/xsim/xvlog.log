@@ -1,0 +1,22 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+WARNING: [VRFC 10-2096] empty statement in sequential block [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/ALU.v:48]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/ARM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ARM
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/CondLogic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CondLogic
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/RegFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Shifter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Shifter
+INFO: [VRFC 10-311] analyzing module shiftByNPowerOf2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/test_Wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_Wrapper

@@ -15,12 +15,26 @@
 	  
 ; ------- <code memory (ROM mapped to Instruction Memory) begins>
 ; Total number of instructions should not exceed 127 (126 excluding the last line 'halt B halt').
-
-	LDR R6, ZERO
-	LDR R7, ONE
-	ADD R7, R7, R7
-	SUB R6, R7, R6
 LOOP
+	LDR R6, ZERO
+	LDR R7, SEVEN
+	LDR R4, TARGET
+	STR R7, [R4, #4]
+	LDR R5, [R4, #4]
+	STR R7, [R4, #-4]
+	LDR R12, [R4, #-4]
+	CMP R6, R6
+	CMN R6, R6
+	LDR R0, SIXTEEN
+	LDR R1, TEN
+	AND R2, R0, R1
+	ORR R3, R0, R1
+	ADD R1, #3
+	SUB R0, #3
+	ORR R8, R6, R7, LSR #2
+	ORR R9, R6, R7, LSL #2
+	ORR R10, R6, R7, ASR #2
+	ORR R11, R6, R7, ROR #2
 	B LOOP
 
 
@@ -52,8 +66,14 @@ SEVENSEG
 ; Rest of the constants should be declared below.
 ZERO
 		DCD 0x00000000		; constant 0
-ONE
-		DCD 0x00000001		; constant 1
+SEVEN
+		DCD 0x00000007		; constant 7
+TARGET
+		DCD 0x00000804		; constant target
+SIXTEEN
+		DCD 0x0000000F		; constant 16
+TEN
+		DCD 0x0000000A		; constant 10
 LSB_MASK
 		DCD 0x000000FF		; constant 0xFF
 DELAY_VAL

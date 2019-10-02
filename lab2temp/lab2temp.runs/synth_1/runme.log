@@ -15,9 +15,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 24984 
+INFO: Helper process launched with PID 28168 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 709.512 ; gain = 178.266
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 709.613 ; gain = 178.063
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'test_Wrapper' [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/test_Wrapper.v:15]
 	Parameter N_LEDs_OUT bound to: 8 - type: integer 
@@ -34,7 +34,6 @@ INFO: [Synth 8-6155] done synthesizing module 'RegFile' (1#1) [D:/YKT/NUS/AY1920
 INFO: [Synth 8-6157] synthesizing module 'Extend' [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Extend.v:35]
 INFO: [Synth 8-6155] done synthesizing module 'Extend' (2#1) [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Extend.v:35]
 INFO: [Synth 8-6157] synthesizing module 'Decoder' [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Decoder.v:35]
-WARNING: [Synth 8-3848] Net NoWrite in module/entity Decoder does not have driver. [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Decoder.v:46]
 INFO: [Synth 8-6155] done synthesizing module 'Decoder' (3#1) [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Decoder.v:35]
 INFO: [Synth 8-6157] synthesizing module 'CondLogic' [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/CondLogic.v:35]
 INFO: [Synth 8-6155] done synthesizing module 'CondLogic' (4#1) [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/CondLogic.v:35]
@@ -64,9 +63,8 @@ INFO: [Synth 8-6155] done synthesizing module 'Wrapper' (10#1) [D:/YKT/NUS/AY192
 WARNING: [Synth 8-85] always block has no event control specified [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/test_Wrapper.v:67]
 INFO: [Synth 8-6155] done synthesizing module 'test_Wrapper' (11#1) [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/test_Wrapper.v:15]
 WARNING: [Synth 8-3331] design CondLogic has unconnected port NoWrite
-WARNING: [Synth 8-3331] design Decoder has unconnected port NoWrite
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 773.094 ; gain = 241.848
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 773.887 ; gain = 242.336
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -79,10 +77,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 773.094 ; gain = 241.848
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 773.887 ; gain = 242.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 773.094 ; gain = 241.848
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 773.887 ; gain = 242.336
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -399,33 +397,34 @@ Resolution: Check if the specified object(s) exists in the current design. If it
 Finished Parsing XDC File [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/TOP.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 889.379 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 881.000 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 889.379 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 881.000 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "INSTR_MEM" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "DATA_CONST_MEM" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "INSTR_MEM" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "DATA_CONST_MEM" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-327] inferring latch for variable 'NoWrite_reg' [D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/Decoder.v:147]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -454,8 +453,9 @@ Detailed RTL Component Info :
 	   4 Input     32 Bit        Muxes := 8     
 	 129 Input     32 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 2     
-	  10 Input      2 Bit        Muxes := 2     
+	  11 Input      2 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 8     
+	  10 Input      1 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -477,8 +477,9 @@ Detailed RTL Component Info :
 Module Decoder 
 Detailed RTL Component Info : 
 +---Muxes : 
-	  10 Input      2 Bit        Muxes := 2     
+	  11 Input      2 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 6     
+	  10 Input      1 Bit        Muxes := 1     
 Module CondLogic 
 Detailed RTL Component Info : 
 +---XORs : 
@@ -558,8 +559,9 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3332] Sequential element (dut/ARM1/Decoder1/NoWrite_reg) is unused and will be removed from module test_Wrapper.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -571,13 +573,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -589,7 +591,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 881.000 ; gain = 349.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -613,7 +615,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -626,7 +628,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -638,25 +640,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -681,25 +683,25 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 889.379 ; gain = 241.848
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 889.379 ; gain = 358.133
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 882.215 ; gain = 243.551
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 882.215 ; gain = 350.664
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 904.645 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 901.363 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 44 Infos, 107 Warnings, 102 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 904.645 ; gain = 609.547
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 904.645 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 901.363 ; gain = 605.941
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 901.363 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/lab2temp.runs/synth_1/test_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file test_Wrapper_utilization_synth.rpt -pb test_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct  1 16:47:39 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  3 00:49:59 2019...
