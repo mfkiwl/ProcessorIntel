@@ -43,7 +43,7 @@ module Decoder(
     output reg ALUSrc,
     output reg [1:0] ImmSrc,
     output reg [1:0] RegSrc,
-    output NoWrite, //??
+    output reg NoWrite, //??
     output reg [1:0] ALUControl,
     output reg [1:0] FlagW
     );
@@ -144,46 +144,61 @@ module Decoder(
                     begin 
                         ALUControl = 2'b00;
                         FlagW = 2'b11;
+                        NoWrite = 0;
                     end
                 5'b01000:
                     begin 
                         ALUControl = 2'b00;
                         FlagW = 2'b00;
+                        NoWrite = 0;
                     end
                 5'b00101:
                     begin 
                         ALUControl = 2'b01;
                         FlagW = 2'b11;
+                        NoWrite = 0;
                     end
                 5'b00100:
                     begin 
                         ALUControl = 2'b01;
                         FlagW = 2'b00;
+                        NoWrite = 0;
                     end
                 5'b00001:
                     begin 
                         ALUControl = 2'b10;
                         FlagW = 2'b10;
+                        NoWrite = 0;
                     end
                 5'b00000:
                     begin 
                         ALUControl = 2'b10;
                         FlagW = 2'b00;
+                        NoWrite = 0;
                     end
                 5'b11001:
                     begin 
                         ALUControl = 2'b11;
                         FlagW = 2'b10;
+                        NoWrite = 0;
                     end
                 5'b11000:
                     begin 
                         ALUControl = 2'b11;
                         FlagW = 2'b00;
+                        NoWrite = 0;
+                    end
+                5'b10101:
+                    begin
+                        ALUControl = 2'b01;
+                        FlagW = 2'b11;
+                        NoWrite = 1;
                     end
                 default:
                     begin
                         ALUControl = 2'bxx;
                         FlagW = 2'bxx;
+                        NoWrite = 1'bx;
                     end
             endcase
         end

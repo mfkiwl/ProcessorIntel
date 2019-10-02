@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1569919605">
   <File Type="PA-TCL" Name="test_Wrapper.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="test_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="test_Wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="test_Wrapper.vds"/>
   <File Type="RDS-UTIL" Name="test_Wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="test_Wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="test_Wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="test_Wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="test_Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/src/ALU.v">
