@@ -194,6 +194,12 @@ module Decoder(
                         FlagW = 2'b11;
                         NoWrite = 1;
                     end
+                5'b11011:
+                    begin
+                        ALUControl = 2'b00;
+                        FlagW = 2'b11;
+                        NoWrite = 1;
+                    end
                 default:
                     begin
                         ALUControl = 2'bxx;
