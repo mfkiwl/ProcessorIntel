@@ -60,7 +60,9 @@ module MCycle
     reg [7:0] count = 0 ; // assuming no computation takes more than 256 cycles.
     reg [2*width-1:0] temp_sum = 0 ;
     reg [2*width-1:0] shifted_op1 = 0 ;
-    reg [2*width-1:0] shifted_op2 = 0 ;     
+    reg [2*width-1:0] shifted_op2 = 0 ;
+    reg [2*width-1:0] shifted_op2D = 0;
+    reg [width-1:0] quotient = 0;     
    
     always@( state, done, Start, RESET ) begin : IDLE_PROCESS  
 		// Note : This block uses non-blocking assignments to get around an unpredictable Verilog simulation behaviour.
@@ -98,7 +100,9 @@ module MCycle
             count = 0 ;
             temp_sum = 0 ;
             shifted_op1 = { {width{~MCycleOp[0] & Operand1[width-1]}}, Operand1 } ; // sign extend the operands  
-            shifted_op2 = { {width{~MCycleOp[0] & Operand2[width-1]}}, Operand2 } ; 
+            shifted_op2 = { {width{~MCycleOp[0] & Operand2[width-1]}}, Operand2 } ;
+            shifted_op2D = { Operand2, {width{~MCycleOp[0] & Operand2[width-1]}}} ; //Divisor
+            
         end ;
         done <= 1'b0 ;   
         
@@ -117,14 +121,36 @@ module MCycle
             count = count + 1;    
         end    
         else begin // Supposed to be Divide. The dummy code below takes 1 cycle to execute, just returns the operands. Change this to signed [ if(~MCycleOp[0]) ] and unsigned [ if(MCycleOp[0]) ] division.
-            temp_sum[2*width-1 : width] = Operand1 ;
-            temp_sum[width-1 : 0] = Operand2 ;
-            done <= 1'b1 ;          
+            if (MCycleOp[0]) begin
+               shifted_op1 = shifted_op1 - shifted_op2D ;
+               if (~shifted_op1[2*width-1]) begin
+                    quotient = { quotient[width-2:0], 1'b1 };
+               end
+               else begin
+                    shifted_op1 = shifted_op1 + shifted_op2D;
+                    quotient = { quotient[width-2:0], 1'b0 };
+               end
+               shifted_op2D = { 1'b0, shifted_op2D[2*width-1:1] };
+               if( (MCycleOp[0] & count == width) | (~MCycleOp[0] & count == 2*width) ) //last cycle?
+                    done <= 1'b1;
+                    
+               count = count + 1;
+            end
+            else if (~MCycleOp[0]) begin //for signed not done lmao copy paste
+                temp_sum[2*width-1 : width] = Operand1 ;
+                temp_sum[width-1 : 0] = Operand2 ;
+                done <= 1'b1 ;  
+            end
+                    
         end ;
-        
-        Result2 <= temp_sum[2*width-1 : width] ;
-        Result1 <= temp_sum[width-1 : 0] ;
-             
+        if (~MCycleOp[1]) begin
+            Result2 <= temp_sum[2*width-1 : width] ;
+            Result1 <= temp_sum[width-1 : 0] ;
+        end
+        else begin
+            Result1 <= quotient;
+            Result2 <= shifted_op2D[width-1:0];
+        end
     end
    
 endmodule
