@@ -1,2 +1,4 @@
 # Don't track content of these folders
 lab2temp/lab2temp.sim/
+lab2temp/lab2temp.cache/wt/webtalk_pa.xml
+lab2temp/lab2temp.cache/wt/project.wpc
