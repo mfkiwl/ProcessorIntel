@@ -67,6 +67,7 @@ module test_Wrapper #(
     always          
     begin
        #5 CLK_undiv = ~CLK_undiv ; // invert clk every 5 time units 
+       DIP = 128;
     end
     
 endmodule
