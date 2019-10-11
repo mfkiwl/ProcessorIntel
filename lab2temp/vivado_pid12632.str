@@ -942,3 +942,22 @@ selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 1094, 527); // n (o, a
 // HMemoryUtils.trashcanNow. Engine heap size: 753 MB. GUI used memory: 57 MB. Current time: 10/11/19, 11:23:34 PM GMT+08:00
 // Elapsed time: 2083 seconds
 selectCodeEditor("MCycle.v", 665, 372); // cl (w, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 753 MB. GUI used memory: 57 MB. Current time: 10/11/19, 11:53:34 PM GMT+08:00
+// Elapsed time: 2331 seconds
+selectCodeEditor("MCycle.v", 160, 455); // cl (w, aM)
+selectCodeEditor("MCycle.v", 42, 436); // cl (w, aM)
+selectCodeEditor("MCycle.v", 26, 448); // cl (w, aM)
+selectCodeEditor("MCycle.v", 15, 418); // cl (w, aM)
+selectCodeEditor("MCycle.v", 226, 416); // cl (w, aM)
+selectCodeEditor("MCycle.v", 202, 215, false, false, false, true, false); // cl (w, aM) - Popup Trigger
+selectMenuItem(RDIResource.HInputHandler_TOGGLE_LINE_COMMENTS, "Toggle Line Comments"); // ah (an, Popup.HeavyWeightWindow)
+typeControlKey(null, null, 'z');
+selectCodeEditor("MCycle.v", 255, 377); // cl (w, aM)
+selectCodeEditor("MCycle.v", 166, 388); // cl (w, aM)
+selectCodeEditor("MCycle.v", 239, 206, false, false, false, true, false); // cl (w, aM) - Popup Trigger
+selectMenuItem(RDIResource.HInputHandler_TOGGLE_LINE_COMMENTS, "Toggle Line Comments"); // ah (an, Popup.HeavyWeightWindow)
+selectCodeEditor("MCycle.v", 367, 351); // cl (w, aM)
+selectCodeEditor("MCycle.v", 88, 366); // cl (w, aM)
+selectCodeEditor("MCycle.v", 92, 379); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE

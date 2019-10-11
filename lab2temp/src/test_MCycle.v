@@ -96,14 +96,11 @@ module test_MCycle(
 //        #10 ;
 //        Start = 1'b0 ;
 //        #10 ;
+
         MCycleOp = 2'b11 ; // unsigned div
         Operand1 = 4'b1110 ;
         Operand2 = 4'b1111 ;
-//        Start = 1'b1 ;
 
-        wait(Busy) ; 
-        wait(~Busy) ; 
-        Start = 1'b0 ;
     end
      
     // GENERATE CLOCK       
