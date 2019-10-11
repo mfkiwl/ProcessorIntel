@@ -2,18 +2,20 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Fri Sep 27 16:05:20 2019
-# Process ID: 15904
-# Current directory: D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24208 D:\YKT\NUS\AY1920\Sem1\CG3207\Lab\workspace\lab2temp\lab2temp\lab2temp.xpr
-# Log file: D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/vivado.log
-# Journal file: D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp\vivado.jou
+# Start of session at: Fri Oct 11 16:07:15 2019
+# Process ID: 12632
+# Current directory: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4688 C:\Users\pigir\Desktop\NUS\Yr4s1\CG3207\Lab\Lab3\ProcessorIntel\lab2temp\lab2temp.xpr
+# Log file: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/vivado.log
+# Journal file: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/lab2temp.xpr
+open_project C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.xpr
 update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs synth_1 -jobs 4
-wait_on_run synth_1
-launch_runs impl_1 -jobs 4
-wait_on_run impl_1
+launch_simulation
+source test_MCycle.tcl
+run 350 ns
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/test_MCycle/dut}} 
+relaunch_sim

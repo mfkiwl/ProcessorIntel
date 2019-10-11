@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1570089938">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1570762739">
   <File Type="PA-TCL" Name="TOP.tcl"/>
   <File Type="REPORTS-TCL" Name="TOP_reports.tcl"/>
   <File Type="RDS-RDS" Name="TOP.vds"/>
@@ -84,6 +84,22 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/src/test_Wrapper.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/src/MCycle.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/src/test_MCycle.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

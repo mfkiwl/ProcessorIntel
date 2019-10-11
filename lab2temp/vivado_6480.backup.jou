@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Oct  9 15:42:22 2019
+# Process ID: 6480
+# Current directory: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13380 C:\Users\pigir\Desktop\NUS\Yr4s1\CG3207\Lab\Lab3\ProcessorIntel\lab2temp\lab2temp.xpr
+# Log file: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/vivado.log
+# Journal file: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.xpr
+update_compile_order -fileset sources_1

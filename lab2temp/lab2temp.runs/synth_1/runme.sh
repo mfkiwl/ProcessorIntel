@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/lab2temp.runs/synth_1'
+HD_PWD='C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

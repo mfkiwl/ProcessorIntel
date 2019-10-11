@@ -62,7 +62,13 @@ module MCycle
     reg [2*width-1:0] shifted_op1 = 0 ;
     reg [2*width-1:0] shifted_op2 = 0 ;
     reg [2*width-1:0] shifted_op2D = 0;
+    reg [2*width:0] pad_shifted_op2D = 0;
+    reg [2*width:0] pad_shifted_op1 = 0 ;
     reg [width-1:0] quotient = 0;     
+    reg [2*width-1:0] temporary = 0;
+    reg [width-1:0] positiveOperand1 = 0;
+    reg [width-1:0] positiveOperand2 = 0;
+
    
     always@( state, done, Start, RESET ) begin : IDLE_PROCESS  
 		// Note : This block uses non-blocking assignments to get around an unpredictable Verilog simulation behaviour.
@@ -99,57 +105,115 @@ module MCycle
         if( RESET | (n_state == COMPUTING & state == IDLE) ) begin // 2nd condition is true during the very 1st clock cycle of the multiplication
             count = 0 ;
             temp_sum = 0 ;
-            shifted_op1 = { {width{~MCycleOp[0] & Operand1[width-1]}}, Operand1 } ; // sign extend the operands  
-            shifted_op2 = { {width{~MCycleOp[0] & Operand2[width-1]}}, Operand2 } ;
-            shifted_op2D = { Operand2, {width{~MCycleOp[0] & Operand2[width-1]}}} ; //Divisor
+            if (~MCycleOp[0]) begin //signed variables
+                if(Operand1[width-1])begin
+                    positiveOperand1 = ~Operand1 + 1'b1;         //convert to positive    
+                    shifted_op1 = { {width{1'b0}}, positiveOperand1 } ;
+                end
+                else begin
+                    shifted_op1 = { {width{1'b0}}, Operand1 } ;
+                end
+                if(Operand2[width-1])begin
+                    positiveOperand2 = ~Operand2 + 1'b1;             //convert to positive
+                    shifted_op2 = { {width{1'b0}}, positiveOperand2 } ;
+                    shifted_op2D = { positiveOperand2, {width{1'b0}}} ; //padding 'width'
+                    
+                end
+                else begin
+                    shifted_op2 = { {width{1'b0}}, Operand2 } ;
+                    shifted_op2D = { Operand2, {width{1'b0}}} ; //padding 'width'
+                end
+            end
+            else if(MCycleOp[0])begin //variables for unsigned
+                    shifted_op1 = { {width{~MCycleOp[0] & Operand1[width-1]}}, Operand1 } ; // sign extend the operands, both dividend and multiplicand are pad left shift left.
+                    shifted_op2 = { {width{~MCycleOp[0] & Operand2[width-1]}}, Operand2 } ; //sign extend the multipler as well
+                    shifted_op2D = { Operand2, {width{~MCycleOp[0] & Operand2[width-1]}}} ; //padding 'width'
+                    if (~MCycleOp[1]) begin
+                        shifted_op1 = {1'b0, shifted_op1};
+                    end
+                    pad_shifted_op2D = { 1'b0, shifted_op2D} ;
+                    pad_shifted_op1 = { 1'b0, shifted_op1} ;
+            end
+//            else begin
+//                shifted_op1 = { {width{~MCycleOp[0] & Operand1[width-1]}}, Operand1 } ; // sign extend the operands, both dividend and multiplicand are pad left shift left.
+//                shifted_op2 = { {width{~MCycleOp[0] & Operand2[width-1]}}, Operand2 } ; //sign extend the multipler as well
+                
+//            end
             
         end ;
         done <= 1'b0 ;   
         
         if( ~MCycleOp[1] ) begin // Multiply
-            // if( ~MCycleOp[0] ), takes 2*'width' cycles to execute, returns signed(Operand1)*signed(Operand2)
-            // if( MCycleOp[0] ), takes 'width' cycles to execute, returns unsigned(Operand1)*unsigned(Operand2)        
+             //if( ~MCycleOp[0] ), takes 2*'width' cycles to execute, returns signed(Operand1)*signed(Operand2)
+             //if( MCycleOp[0] ), takes 'width' cycles to execute, returns unsigned(Operand1)*unsigned(Operand2)        
             if( shifted_op2[0] ) // add only if b0 = 1
                 temp_sum = temp_sum + shifted_op1 ; // partial product for multiplication
                 
-            shifted_op2 = {1'b0, shifted_op2[2*width-1 : 1]} ;
-            shifted_op1 = {shifted_op1[2*width-2 : 0], 1'b0} ;    
+            shifted_op2 = {1'b0, shifted_op2[2*width-1 : 1]} ; //multipler shift right
+            shifted_op1 = {shifted_op1[2*width-2 : 0], 1'b0} ;    //multiplicand shift left
                 
-            if( (MCycleOp[0] & count == width-1) | (~MCycleOp[0] & count == 2*width-1) ) // last cycle?
+            if(count == width-1) begin// last cycle?
+                if (Operand1[width-1:0] ^ Operand2[width-1:0])begin
+                    temp_sum = ~temp_sum + 1;
+                end
                 done <= 1'b1 ;   
+            end
                
             count = count + 1;    
-        end    
+    
+        end 
         else begin // Supposed to be Divide. The dummy code below takes 1 cycle to execute, just returns the operands. Change this to signed [ if(~MCycleOp[0]) ] and unsigned [ if(MCycleOp[0]) ] division.
-            if (MCycleOp[0]) begin
-               shifted_op1 = shifted_op1 - shifted_op2D ;
-               if (~shifted_op1[2*width-1]) begin
-                    quotient = { quotient[width-2:0], 1'b1 };
+            if (MCycleOp[0]) begin //unsigned division
+               pad_shifted_op1 = pad_shifted_op1 - pad_shifted_op2D; //remainder - divisor
+               if (~pad_shifted_op1[2*width]) begin
+                    quotient = { quotient[width-2:0], 1'b1 }; //shift the quotient to the left, remainder >= 0
                end
                else begin
-                    shifted_op1 = shifted_op1 + shifted_op2D;
+                    pad_shifted_op1 = pad_shifted_op1 + pad_shifted_op2D; //restorative division for remainder < 0
                     quotient = { quotient[width-2:0], 1'b0 };
                end
-               shifted_op2D = { 1'b0, shifted_op2D[2*width-1:1] };
-               if( (MCycleOp[0] & count == width) | (~MCycleOp[0] & count == 2*width) ) //last cycle?
-                    done <= 1'b1;
+               pad_shifted_op2D = { 1'b0, pad_shifted_op2D[2*width:1] }; //right shift one divisor
+               if( count == width ) //last cycle?
+                    done <= 1'b1; 
                     
                count = count + 1;
             end
-            else if (~MCycleOp[0]) begin //for signed not done lmao copy paste
-                temp_sum[2*width-1 : width] = Operand1 ;
-                temp_sum[width-1 : 0] = Operand2 ;
-                done <= 1'b1 ;  
+            else if (~MCycleOp[0]) begin //signed division
+
+               shifted_op1 = shifted_op1 - shifted_op2D ; //remainder - divisor
+               if (~shifted_op1[2*width - 1]) begin
+                    quotient = { quotient[width-1:0], 1'b1 }; //shift the quotient to the left, remainder >= 0
+               end
+               else begin
+                    shifted_op1 = shifted_op1 + shifted_op2D; //restorative division for remainder < 0
+                    quotient = { quotient[width-1:0], 1'b0 };
+               end
+               shifted_op2D = { 1'b0, shifted_op2D[2*width-1:1] }; //right shift one divisor
+                
+               if( count == width ) begin//last cycle?
+                    if (Operand1[width-1:0] ^ Operand2[width-1:0])begin //if both signs are different, negate
+                        quotient = ~quotient + 1'b1;
+                    end
+                    done <= 1'b1;
+                end
+                    
+                count = count + 1;  
             end
                     
         end ;
-        if (~MCycleOp[1]) begin
+        if (~MCycleOp[1]) begin //multiply
             Result2 <= temp_sum[2*width-1 : width] ;
             Result1 <= temp_sum[width-1 : 0] ;
         end
         else begin
-            Result1 <= quotient;
-            Result2 <= shifted_op2D[width-1:0];
+            if(MCycleOp[0])begin // unsigned div
+                Result1 <= quotient;
+                Result2 <= pad_shifted_op1[width-1 : 0];
+            end
+            else begin 
+                Result1 <= quotient;
+                Result2 <= shifted_op1[width-1 : 0];
+            end
         end
     end
    

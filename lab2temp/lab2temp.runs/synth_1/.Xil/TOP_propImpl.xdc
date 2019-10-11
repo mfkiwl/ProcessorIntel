@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/src/TOP.xdc rfile:../../../src/TOP.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/src/TOP.xdc rfile:../../../src/TOP.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN E3 [get_ports CLK_undiv]
 set_property src_info {type:XDC file:1 line:14 export:INPUT save:INPUT read:READ} [current_design]
