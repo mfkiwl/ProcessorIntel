@@ -1,2 +1,9 @@
 # Don't track content of these folders
 lab2temp/lab2temp.sim/
+lab2temp/.Xil/
+lab2temp/lab2temp.cache/
+lab2temp/lab2temp.hw/
+lab2temp.ip_user_files/
+lab2temp/lab2temp.runs/
+lab2temp/vivado.jou
+lab2temp/vivado.log
