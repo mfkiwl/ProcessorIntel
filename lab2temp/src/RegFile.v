@@ -41,7 +41,8 @@ module RegFile(
     input [31:0] WD3,
     input [31:0] R15,
     output [31:0] RD1,
-    output [31:0] RD2
+    output [31:0] RD2,
+    output [511:0] bigRegBank
     );
     
     // declare RegBank
@@ -59,6 +60,8 @@ module RegFile(
         if((A3 != 4'b1111) & (WE3))
             RegBank[A3] <= WD3 ;
     end
+    
+    assign bigRegBank = {RegBank[15], RegBank[14], RegBank[13], RegBank[12], RegBank[11], RegBank[10], RegBank[9], RegBank[8], RegBank[7], RegBank[6], RegBank[5], RegBank[4], RegBank[3], RegBank[2], RegBank[1], RegBank[0]};
     
 endmodule
 

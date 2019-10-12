@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Thu Oct  3 16:30:32 2019
-# Process ID: 23384
+# Start of session at: Thu Oct 10 15:48:48 2019
+# Process ID: 21324
 # Current directory: D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/lab2temp.runs/impl_1
 # Command line: vivado.exe -log TOP.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source TOP.tcl -notrace
 # Log file: D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp/lab2temp.runs/impl_1/TOP.vdi
