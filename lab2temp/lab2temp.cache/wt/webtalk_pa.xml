@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sun Oct 13 01:24:01 2019">
+<application name="pa" timeStamp="Sun Oct 13 01:32:24 2019">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="e9f345c733e44c319302605617ef0fc5" type="ProjectID"/>
 <property name="ProjectIteration" value="16" type="ProjectIteration"/>
@@ -47,7 +47,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="FPGAChooser_FAMILY" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_FPGA_TABLE" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_SPEED" value="1" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="111" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="114" type="GuiHandlerData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="61" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_FIT" value="35" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_IN" value="46" type="GuiHandlerData"/>
@@ -92,9 +92,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="WaveformView_GOTO_TIME_0" value="1" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="38" type="GuiMode"/>
+<property name="GuiMode" value="40" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="27" type="TclMode"/>
+<property name="TclMode" value="29" type="TclMode"/>
 </item>
 </section>
 </application>
