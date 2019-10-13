@@ -45,7 +45,8 @@ module ARM(
     output MemWrite,
     output [31:0] PC,
     output [31:0] ALUResult,
-    output [31:0] WriteData
+    output [31:0] WriteData,
+    output [511:0] bigRegBank
     );
     
     // RegFile signals
@@ -140,7 +141,8 @@ module ARM(
                     WD3,
                     R15,
                     RD1,
-                    RD2     
+                    RD2,
+                    bigRegBank    
                 );
                 
     assign InstrImm = Instr[23:0];

@@ -69,9 +69,17 @@ module Wrapper
 wire[31:0] PC ;
 wire[31:0] Instr ;
 reg[31:0] ReadData ;
+wire[511:0] bigRegBank ;
 wire MemWrite ;
 wire[31:0] ALUResult ;
 wire[31:0] WriteData ;
+
+//----------------------------------------------------------------
+// Extra stuff
+//---------------------------------------------------------------
+reg[3:0] DIP_indicator;
+reg[9:0] bigRegBank_indicator = 0;
+
 
 //----------------------------------------------------------------
 // Address Decode signals
@@ -85,7 +93,7 @@ reg [31:0] INSTR_MEM		[0:127]; // instruction memory
 reg [31:0] DATA_CONST_MEM	[0:127]; // data (constant) memory
 reg [31:0] DATA_VAR_MEM     [0:127]; // data (variable) memory
 
-reg [8:0] i;
+reg [8:0] i, j;
 
 
 //----------------------------------------------------------------
@@ -160,6 +168,10 @@ end
 initial begin
 end
 
+initial begin
+    DIP_indicator = 0;
+end
+
 //----------------------------------------------------------------
 // Debug LEDs
 //----------------------------------------------------------------
@@ -176,7 +188,8 @@ ARM ARM1(
 	MemWrite,
 	PC,
 	ALUResult,
-	WriteData
+	WriteData,
+	bigRegBank
 );
 
 //----------------------------------------------------------------
@@ -253,8 +266,17 @@ end
 always @(posedge CLK) begin
 	if (RESET)
 		SEVENSEGHEX <= 'b0;
-	else if (MemWrite && dec_7SEG)
-		SEVENSEGHEX <= WriteData;
+//	else if (MemWrite && dec_7SEG)
+//		SEVENSEGHEX <= WriteData;
+    else begin
+        for (j = 0; j<16; j = j+1) begin
+            if(DIP[j]) begin
+                DIP_indicator = j;
+            end
+        end
+        bigRegBank_indicator = ((DIP_indicator + 1) * 32) - 1;
+        SEVENSEGHEX <= bigRegBank[bigRegBank_indicator -: 32] ;
+    end
 end
 
 //----------------------------------------------------------------
