@@ -893,3 +893,87 @@ INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 Vivado Simulator 2019.1
 Time resolution is 1 ps
 relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 775.730 ; gain = 0.000
+relaunch_sim
+suspend_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 775.730 ; gain = 0.000
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_MCycle' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_MCycle_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/src/MCycle.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MCycle
+WARNING: [VRFC 10-2096] empty statement in sequential block [C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/src/MCycle.v:106]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/src/test_MCycle.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_MCycle
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+"xelab -wto 2b86087588554b24ace8dd6ed02d8e34 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_MCycle_behav xil_defaultlib.test_MCycle xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 2b86087588554b24ace8dd6ed02d8e34 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_MCycle_behav xil_defaultlib.test_MCycle xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.MCycle
+Compiling module xil_defaultlib.test_MCycle
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_MCycle_behav
+
+****** Webtalk v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim/xsim.dir/test_MCycle_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim/xsim.dir/test_MCycle_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sun Oct 13 08:52:37 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2019.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sun Oct 13 08:52:37 2019...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:14 . Memory (MB): peak = 775.730 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '13' seconds
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:14 . Memory (MB): peak = 775.730 ; gain = 0.000
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:30 . Memory (MB): peak = 775.730 ; gain = 0.000
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_MCycle' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_MCycle_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/src/MCycle.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MCycle
+WARNING: [VRFC 10-2096] empty statement in sequential block [C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/src/MCycle.v:105]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/src/test_MCycle.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_MCycle
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim'
+"xelab -wto 2b86087588554b24ace8dd6ed02d8e34 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_MCycle_behav xil_defaultlib.test_MCycle xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 2b86087588554b24ace8dd6ed02d8e34 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_MCycle_behav xil_defaultlib.test_MCycle xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.MCycle
+Compiling module xil_defaultlib.test_MCycle
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_MCycle_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 775.730 ; gain = 0.000
