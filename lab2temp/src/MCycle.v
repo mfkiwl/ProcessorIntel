@@ -68,13 +68,9 @@ module MCycle
     reg [2*width-1:0] temporary = 0;
     reg [width-1:0] positiveOperand1 = 0;
     reg [width-1:0] positiveOperand2 = 0;
-<<<<<<< HEAD
     reg [2*width-1:0] tempSum = 0;
     reg [2*width:0] fullSum = 0;
     reg [width-1:0] multicand_bar = 0;
-=======
-
->>>>>>> ff4c565939264c9a1244c0616072facb7032fcce
    
     always@( state, done, Start, RESET ) begin : IDLE_PROCESS  
 		// Note : This block uses non-blocking assignments to get around an unpredictable Verilog simulation behaviour.
@@ -150,7 +146,6 @@ module MCycle
         done <= 1'b0 ;   
         
         if( ~MCycleOp[1] ) begin // Multiply
-<<<<<<< HEAD
             if(MCycleOp[0])begin
              //if( ~MCycleOp[0] ), takes 2*'width' cycles to execute, returns signed(Operand1)*signed(Operand2)
              //if( MCycleOp[0] ), takes 'width' cycles to execute, returns unsigned(Operand1)*unsigned(Operand2)        
@@ -208,25 +203,6 @@ module MCycle
                   end
                 count = count + 1 ;
             end
-=======
-             //if( ~MCycleOp[0] ), takes 2*'width' cycles to execute, returns signed(Operand1)*signed(Operand2)
-             //if( MCycleOp[0] ), takes 'width' cycles to execute, returns unsigned(Operand1)*unsigned(Operand2)        
-            if( shifted_op2[0] ) // add only if b0 = 1
-                temp_sum = temp_sum + shifted_op1 ; // partial product for multiplication
-                
-            shifted_op2 = {1'b0, shifted_op2[2*width-1 : 1]} ; //multipler shift right
-            shifted_op1 = {shifted_op1[2*width-2 : 0], 1'b0} ;    //multiplicand shift left
-                
-            if(count == width-1) begin// last cycle?
-                if (Operand1[width-1:0] ^ Operand2[width-1:0])begin
-                    temp_sum = ~temp_sum + 1;
-                end
-                done <= 1'b1 ;   
-            end
-               
-            count = count + 1;    
->>>>>>> ff4c565939264c9a1244c0616072facb7032fcce
-    
         end 
         else begin // Supposed to be Divide. The dummy code below takes 1 cycle to execute, just returns the operands. Change this to signed [ if(~MCycleOp[0]) ] and unsigned [ if(MCycleOp[0]) ] division.
             if (MCycleOp[0]) begin //unsigned division
