@@ -19,3 +19,27 @@ relaunch_sim
 current_wave_config {Untitled 1}
 add_wave {{/test_MCycle/dut}} 
 relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source test_MCycle.tcl
+current_wave_config {Untitled 2}
+add_wave {{/test_MCycle/dut}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim

@@ -67,28 +67,35 @@ module test_MCycle(
         // hold reset state for 100 ns.
         #10 ;    
         MCycleOp = 2'b10 ; //signed div
-        Operand1 = 4'b1001 ;
-        Operand2 = 4'b0011 ;
+        Operand1 = 4'b1001 ; //-7
+        Operand2 = 4'b0011 ; //3
         Start = 1'b1 ; // Start is asserted continously(Operations are performed back to back). To try a non-continous Start, you can uncomment the commented lines.    
 
         wait(Busy) ; // suspend initial block till condition becomes true  ;
         wait(~Busy) ;
 //        #10 ;
-//        Start = 1'b0 ;
-//        #10 ;
+        //Start = 1'b0 ;
+        //#10 ;
         MCycleOp = 2'b00 ; // signed mul
         Operand1 = 4'b1001 ; //-7
         Operand2 = 4'b0111 ; //7
-//        Start = 1'b1 ; //expected : -49 represented as 2's complement
-        
+        //Start = 1'b1 ; //expected : -49(cf) represented as 2's complement
+
+//        MCycleOp = 2'b00 ; // signed mul
+//        Operand1 = 4'b1010 ; //-6
+//        Operand2 = 4'b0001 ; //1 
+        //expected : -6 (fa) represented as 2's complement
+//        MCycleOp = 2'b00 ; // signed mul
+//        Operand1 = 4'b0011 ; //3
+//        Operand2 = 4'b0011 ; //3
         wait(Busy) ; 
         wait(~Busy) ;
 //        #10 ;
 //        Start = 1'b0 ;
 //        #10 ;
         MCycleOp = 2'b01 ; // unsigned mul
-        Operand1 = 4'b0011 ;
-        Operand2 = 4'b0011 ;
+        Operand1 = 4'b0011 ; //3
+        Operand2 = 4'b0011 ; //3
 //        Start = 1'b1 ;
 
         wait(Busy) ; 
@@ -98,8 +105,8 @@ module test_MCycle(
 //        #10 ;
 
         MCycleOp = 2'b11 ; // unsigned div
-        Operand1 = 4'b1110 ;
-        Operand2 = 4'b1111 ;
+        Operand1 = 4'b1110 ; //14
+        Operand2 = 4'b1111 ; //15
 
     end
      
