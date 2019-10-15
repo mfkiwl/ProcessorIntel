@@ -36,6 +36,7 @@ module Decoder(
     input [3:0] Rd, 
     input [1:0] Op,
     input [5:0] Funct,
+    input [3:0] MChecker,
     output PCS, 
     output reg RegW,
     output reg MemW,
@@ -45,7 +46,9 @@ module Decoder(
     output reg [1:0] RegSrc,
     output reg NoWrite, //??
     output reg [1:0] ALUControl,
-    output reg [1:0] FlagW
+    output reg [1:0] FlagW,
+    output reg [1:0] MCycleOp,
+    output reg MStart
     );
     
     reg ALUOp ;
@@ -58,8 +61,8 @@ module Decoder(
     always@(*)
     begin
         case(Op)
-            2'b00:
-                if(Funct[5] == 0)
+            2'b00: // DP instruction
+                if(Funct[5] == 0) // Immediate flag not set
                 begin
                    Branch = 0;
                    MemtoReg = 0;
@@ -81,7 +84,7 @@ module Decoder(
                    RegSrc = 2'bx0;
                    ALUOp = 1; 
                 end
-            2'b01:
+            2'b01: // Memory Instruction
                 if(Funct[0] == 0)
                 begin
                     Branch = 0;
@@ -104,7 +107,7 @@ module Decoder(
                     RegSrc = 2'bx0;
                     ALUOp = 0;
                 end     
-            2'b10:
+            2'b10: // Branch
                 begin
                     Branch = 1;
                     MemtoReg = 1'b0;
@@ -130,8 +133,9 @@ module Decoder(
 
     end    
     
-    always @ (ALUOp, Funct[4:0])
+    always @ (ALUOp, Funct[4:0]) // Funct[4:1] is cmd
     begin
+        MStart = 0;
         if(ALUOp == 0)
         begin
             ALUControl = 2'b00;
@@ -140,65 +144,79 @@ module Decoder(
         else 
         begin
             case(Funct[4:0])
-                5'b01001:
+                5'b01001: // ADDS
                     begin 
                         ALUControl = 2'b00;
                         FlagW = 2'b11;
                         NoWrite = 0;
                     end
-                5'b01000:
+                5'b01000: //ADD
                     begin 
                         ALUControl = 2'b00;
                         FlagW = 2'b00;
                         NoWrite = 0;
                     end
-                5'b00101:
+                5'b00101: //SUBS
                     begin 
                         ALUControl = 2'b01;
                         FlagW = 2'b11;
                         NoWrite = 0;
                     end
-                5'b00100:
+                5'b00100: // SUB
                     begin 
                         ALUControl = 2'b01;
                         FlagW = 2'b00;
                         NoWrite = 0;
                     end
-                5'b00001:
+                5'b00001: // ANDS and MULS (MULS not required at the moment, so not configured)
                     begin 
                         ALUControl = 2'b10;
                         FlagW = 2'b10;
                         NoWrite = 0;
                     end
-                5'b00000:
+                5'b00000: // AND and MUL
                     begin 
                         ALUControl = 2'b10;
                         FlagW = 2'b00;
                         NoWrite = 0;
+                        if (MChecker == 4'b1001) begin
+                            MCycleOp = 2'b01;
+                            MStart = 1;
+                        end
                     end
-                5'b11001:
+                5'b11001: // ORRS
                     begin 
                         ALUControl = 2'b11;
                         FlagW = 2'b10;
                         NoWrite = 0;
                     end
-                5'b11000:
+                5'b11000: // ORR
                     begin 
                         ALUControl = 2'b11;
                         FlagW = 2'b00;
                         NoWrite = 0;
                     end
-                5'b10101:
+                5'b10101: // CMPS
                     begin
                         ALUControl = 2'b01;
                         FlagW = 2'b11;
                         NoWrite = 1;
                     end
-                5'b11011:
+                5'b11011: // MOV
                     begin
                         ALUControl = 2'b00;
                         FlagW = 2'b11;
                         NoWrite = 1;
+                    end
+                5'b0001x: // MLA (but use for DIV)
+                    begin
+                        ALUControl = 2'b00;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
+                        if (MChecker == 4'b1001) begin
+                            MCycleOp = 2'b11;
+                            MStart = 1;
+                        end
                     end
                 default:
                     begin

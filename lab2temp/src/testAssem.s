@@ -15,30 +15,35 @@
 	  
 ; ------- <code memory (ROM mapped to Instruction Memory) begins>
 ; Total number of instructions should not exceed 127 (126 excluding the last line 'halt B halt').
+; LOOP
+	; LDR R6, ZERO ; R6 is 0 
+	; LDR R7, SEVEN ; R7 is 7
+	; LDR R4, TARGET ; pre-loads value of memory into R4 first, 0x00000804
+	; STR R7, [R4, #4]
+	; LDR R5, [R4, #4] ; R5 should now have the contents of R7, 7
+	; LDR R7, SIX ; R7 is 6 now
+	; STR R7, [R4, #-4]
+	; LDR R12, [R4, #-4] ; R12 is 6
+	; CMP R6, R7 ; N flag set
+	; CMN R6, R7 ; No flags set
+	; LDR R0, NINE ; R0 is 9
+	; LDR R1, TEN ; R1 is A
+	; AND R2, R0, R1 ; R2 will be 8, AND 1001 and 1010 > 1000
+	; ORR R3, R0, R1; R3 will be B, OR 1001 and 1010 > 1011
+	; ADD R1, #3 ; A + 3, R1 will be D
+	; SUB R0, #3 ; 9 - 3, R0 will be 6
+	; ORR R8, R6, R7, LSR #2 ; R8 will  be 1
+	; ORR R9, R6, R7, LSL #2 ; R9 will be 18
+	; ORR R10, R6, R7, ASR #2 ; R10 will be 1
+	; ORR R11, R6, R7, ROR #2 ; R11 will be 0x80000001
+	; B LOOP
+
+	LDR R6, SIX ; R6 is 6
+	LDR R5, FIVE; R5 is 5
+	LDR R4, THREE; R4 is 3
+	MUL R3, R4, R5; R3 will be 15
 LOOP
-	LDR R6, ZERO ; R6 is 0 
-	LDR R7, SEVEN ; R7 is 7
-	LDR R4, TARGET ; pre-loads value of memory into R4 first, 0x00000804
-	STR R7, [R4, #4]
-	LDR R5, [R4, #4] ; R5 should now have the contents of R7, 7
-	LDR R7, SIX ; R7 is 6 now
-	STR R7, [R4, #-4]
-	LDR R12, [R4, #-4] ; R12 is 6
-	CMP R6, R7 ; N flag set
-	CMN R6, R7 ; No flags set
-	LDR R0, NINE ; R0 is 9
-	LDR R1, TEN ; R1 is A
-	AND R2, R0, R1 ; R2 will be 8, AND 1001 and 1010 > 1000
-	ORR R3, R0, R1; R3 will be B, OR 1001 and 1010 > 1011
-	ADD R1, #3 ; A + 3, R1 will be D
-	SUB R0, #3 ; 9 - 3, R0 will be 6
-	ORR R8, R6, R7, LSR #2 ; R8 will  be 1
-	ORR R9, R6, R7, LSL #2 ; R9 will be 18
-	ORR R10, R6, R7, ASR #2 ; R10 will be 1
-	ORR R11, R6, R7, ROR #2 ; R11 will be 0x80000001
 	B LOOP
-
-
 
 
 
@@ -67,6 +72,8 @@ SEVENSEG
 ; Rest of the constants should be declared below.
 ZERO
 		DCD 0x00000000		; constant 0
+THREE
+		DCD 0x00000003		; constant 3
 SEVEN
 		DCD 0x00000007		; constant 7
 SIX
