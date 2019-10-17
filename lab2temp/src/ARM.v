@@ -118,8 +118,8 @@ module ARM(
     wire MStart ;
     wire [1:0] MCycleOp ;
     wire Busy ;
-    wire [15:0] Result1 ;
-    wire [15:0] Result2 ;
+    wire [31:0] Result1 ;
+    wire [31:0] Result2 ;
         
     // Other internal signals here
     wire [31:0] PCPlus4 ;
@@ -241,7 +241,7 @@ module ARM(
                 );
                 
      assign WriteData = RD2;
-     assign Result = (MemtoReg == 1) ? ReadData : ((Busy) ? Result1 : ALUResult);
+     assign Result = (MemtoReg == 1) ? ReadData : ((MStart) ? Result1 : ALUResult);
      
      // Instantiate MCycle
      MCycle MCycle( 
@@ -249,8 +249,8 @@ module ARM(
                     RESET, 
                     MStart, 
                     MCycleOp, 
-                    RD1, 
                     RD2, 
+                    RD1, 
                     Result1, 
                     Result2, 
                     Busy

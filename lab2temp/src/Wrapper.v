@@ -96,16 +96,18 @@ reg [31:0] DATA_VAR_MEM     [0:127]; // data (variable) memory
 reg [8:0] i, j;
 
 
+
 //----------------------------------------------------------------
 // Instruction Memory
 //----------------------------------------------------------------
 initial begin
-			INSTR_MEM[0] = 32'hE59F6220; 
-			INSTR_MEM[1] = 32'hE59F5220; 
-			INSTR_MEM[2] = 32'hE59F4210; 
+			INSTR_MEM[0] = 32'hE59F6238; 
+			INSTR_MEM[1] = 32'hE59F5238; 
+			INSTR_MEM[2] = 32'hE59F4238; 
 			INSTR_MEM[3] = 32'hE0030594; 
-			INSTR_MEM[4] = 32'hEAFFFFFE; 
-			for(i = 5; i < 128; i = i+1) begin 
+			INSTR_MEM[4] = 32'hE0220496; 
+			INSTR_MEM[5] = 32'hEAFFFFFE; 
+			for(i = 6; i < 128; i = i+1) begin 
 				INSTR_MEM[i] = 32'h0; 
 			end
 end
@@ -130,18 +132,21 @@ initial begin
 			DATA_CONST_MEM[13] = 32'h00000804; 
 			DATA_CONST_MEM[14] = 32'h0000000F; 
 			DATA_CONST_MEM[15] = 32'h0000000A; 
-			DATA_CONST_MEM[16] = 32'h000000FF; 
-			DATA_CONST_MEM[17] = 32'h00000002; 
-			DATA_CONST_MEM[18] = 32'h00000800; 
-			DATA_CONST_MEM[19] = 32'hABCD1234; 
-			DATA_CONST_MEM[20] = 32'h65570A0D; 
-			DATA_CONST_MEM[21] = 32'h6D6F636C; 
-			DATA_CONST_MEM[22] = 32'h6F742065; 
-			DATA_CONST_MEM[23] = 32'h33474320; 
-			DATA_CONST_MEM[24] = 32'h2E373032; 
-			DATA_CONST_MEM[25] = 32'h000A0D2E; 
-			DATA_CONST_MEM[26] = 32'h00000250; 
-			for(i = 27; i < 128; i = i+1) begin 
+			DATA_CONST_MEM[16] = 32'h8000000F; 
+			DATA_CONST_MEM[17] = 32'h81000004; 
+			DATA_CONST_MEM[18] = 32'h00008010; 
+			DATA_CONST_MEM[19] = 32'h000000FF; 
+			DATA_CONST_MEM[20] = 32'h00000002; 
+			DATA_CONST_MEM[21] = 32'h00000800; 
+			DATA_CONST_MEM[22] = 32'hABCD1234; 
+			DATA_CONST_MEM[23] = 32'h65570A0D; 
+			DATA_CONST_MEM[24] = 32'h6D6F636C; 
+			DATA_CONST_MEM[25] = 32'h6F742065; 
+			DATA_CONST_MEM[26] = 32'h33474320; 
+			DATA_CONST_MEM[27] = 32'h2E373032; 
+			DATA_CONST_MEM[28] = 32'h000A0D2E; 
+			DATA_CONST_MEM[29] = 32'h0000025C; 
+			for(i = 30; i < 128; i = i+1) begin 
 				DATA_CONST_MEM[i] = 32'h0; 
 			end
 end

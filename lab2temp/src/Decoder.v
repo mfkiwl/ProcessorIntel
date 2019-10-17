@@ -208,7 +208,7 @@ module Decoder(
                         FlagW = 2'b11;
                         NoWrite = 1;
                     end
-                5'b0001x: // MLA (but use for DIV)
+                5'b00010: // MLA (but use for DIV)
                     begin
                         ALUControl = 2'b00;
                         FlagW = 2'b00;

@@ -136,17 +136,11 @@ module MCycle
                     pad_shifted_op2D = { 1'b0, shifted_op2D} ;
                     pad_shifted_op1 = { 1'b0, shifted_op1} ;
             end
-//            else begin
-//                shifted_op1 = { {width{~MCycleOp[0] & Operand1[width-1]}}, Operand1 } ; // sign extend the operands, both dividend and multiplicand are pad left shift left.
-//                shifted_op2 = { {width{~MCycleOp[0] & Operand2[width-1]}}, Operand2 } ; //sign extend the multipler as well
-                
-//            end
-            
         end ;
         done <= 1'b0 ;   
         
         if( ~MCycleOp[1] ) begin // Multiply
-            if(MCycleOp[0])begin
+            if(MCycleOp[0])begin // unsigned
              //if( ~MCycleOp[0] ), takes 2*'width' cycles to execute, returns signed(Operand1)*signed(Operand2)
              //if( MCycleOp[0] ), takes 'width' cycles to execute, returns unsigned(Operand1)*unsigned(Operand2)        
                 if( shifted_op2[0] ) // add only if b0 = 1
@@ -156,15 +150,12 @@ module MCycle
                 shifted_op1 = {shifted_op1[2*width-2 : 0], 1'b0} ;    //multiplicand shift left
                     
                 if(count == width-1) begin// last cycle?
-                    if (Operand1[width-1:0] ^ Operand2[width-1:0])begin
-                        temp_sum = ~temp_sum + 1;
-                    end
                     done <= 1'b1 ;   
                 end
                    
                 count = count + 1;    
             end
-            else begin
+            else begin // signed
             //Booths algo for signed mul, initialize variables
                 if (count == 0)begin
                     multicand_bar = ~shifted_op1[width-1:0] + 1;  
@@ -193,7 +184,7 @@ module MCycle
                 end
                 
                 if(count == width)begin 
-                    if (Operand1[width-1:0] ^ Operand2[width-1:0]) //check if the signs are opposite
+                    if (Operand1[width-1] ^ Operand2[width-1]) //check if the signs are opposite
                     begin
                         fullSum[2*width:1] = ~fullSum[2*width:1] + 1;
                     end
@@ -233,7 +224,7 @@ module MCycle
                shifted_op2D = { 1'b0, shifted_op2D[2*width-1:1] }; //right shift one divisor
                 
                if( count == width ) begin//last cycle?
-                    if (Operand1[width-1:0] ^ Operand2[width-1:0])begin //if both signs are different, negate
+                    if (Operand1[width-1] ^ Operand2[width-1])begin //if both signs are different, negate
                         quotient = ~quotient + 1'b1;
                     end
                     done <= 1'b1;
