@@ -1,10 +1,10 @@
 # Don't track content of these items and folders
-**/lab2temp.sim/
-**/.Xil/
-**/lab2temp.cache/
-**/lab2temp.hw/
-**/lab2temp.ip_user_files/
-**/lab2temp.runs/
+**/lab2temp.sim/*
+**/.Xil/*
+**/lab2temp.cache/*
+**/lab2temp.hw/*
+**/lab2temp.ip_user_files/*
+**/lab2temp.runs/*
 **/vivado.jou
 **/vivado.log
 vivado**.jou
