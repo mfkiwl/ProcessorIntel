@@ -1,0 +1,19 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/ALU.v,1570515157,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/ARM.v,,ALU,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/ARM.v,1571124107,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/CondLogic.v,,ARM,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/CondLogic.v,1570515157,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Decoder.v,,CondLogic,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Decoder.v,1571115339,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Extend.v,,Decoder,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Extend.v,1570515157,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/MCycle.v,,Extend,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/MCycle.v,1571128278,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/test_MCycle.v,,MCycle,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/ProgramCounter.v,1571115339,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/RegFile.v,,ProgramCounter,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/RegFile.v,1570928622,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Shifter.v,,RegFile,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Shifter.v,1570515157,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Wrapper.v,,Shifter;shiftByNPowerOf2,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/TOP.vhd,1570515157,vhdl,,,,top,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/Wrapper.v,1571115339,verilog,,C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/test_Wrapper.v,,Wrapper,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/test_MCycle.v,1571130255,verilog,,,,test_MCycle,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/test_Wrapper.v,1570928622,verilog,,,,test_Wrapper,,,,,,,,
+C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab3/ProcessorIntel/lab2temp/project_1/project_1.srcs/sources_1/imports/src/uart.vhd,1570515157,vhdl,,,,uart,,,,,,,,

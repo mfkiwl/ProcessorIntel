@@ -1,4 +1,13 @@
-# Don't track content of these folders
-lab2temp/lab2temp.sim/
-lab2temp/lab2temp.cache/wt/webtalk_pa.xml
-lab2temp/lab2temp.cache/wt/project.wpc
+# Don't track content of these items and folders
+**/lab2temp.sim/*
+**/.Xil/*
+**/lab2temp.cache/*
+**/lab2temp.hw/*
+**/lab2temp.ip_user_files/*
+**/lab2temp.runs/*
+**/vivado.jou
+**/vivado.log
+vivado**.jou
+vivado**.log
+**.zip
+lab2temp.xpr

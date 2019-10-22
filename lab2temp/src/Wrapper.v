@@ -69,9 +69,17 @@ module Wrapper
 wire[31:0] PC ;
 wire[31:0] Instr ;
 reg[31:0] ReadData ;
+wire[511:0] bigRegBank ;
 wire MemWrite ;
 wire[31:0] ALUResult ;
 wire[31:0] WriteData ;
+
+//----------------------------------------------------------------
+// Extra stuff
+//---------------------------------------------------------------
+reg[3:0] DIP_indicator;
+reg[9:0] bigRegBank_indicator = 0;
+
 
 //----------------------------------------------------------------
 // Address Decode signals
@@ -85,35 +93,27 @@ reg [31:0] INSTR_MEM		[0:127]; // instruction memory
 reg [31:0] DATA_CONST_MEM	[0:127]; // data (constant) memory
 reg [31:0] DATA_VAR_MEM     [0:127]; // data (variable) memory
 
-reg [8:0] i;
+reg [8:0] i, j;
+
+
 
 
 //----------------------------------------------------------------
 // Instruction Memory
 //----------------------------------------------------------------
 initial begin
-			INSTR_MEM[0] = 32'hE59F6214; 
-			INSTR_MEM[1] = 32'hE59F7214; 
-			INSTR_MEM[2] = 32'hE59F4220; 
-			INSTR_MEM[3] = 32'hE5847004; 
-			INSTR_MEM[4] = 32'hE5945004; 
-			INSTR_MEM[5] = 32'hE59F7208; 
-			INSTR_MEM[6] = 32'hE5047004; 
-			INSTR_MEM[7] = 32'hE514C004; 
-			INSTR_MEM[8] = 32'hE1560007; 
-			INSTR_MEM[9] = 32'hE1760007; 
-			INSTR_MEM[10] = 32'hE59F01FC; 
-			INSTR_MEM[11] = 32'hE59F1204; 
-			INSTR_MEM[12] = 32'hE0002001; 
-			INSTR_MEM[13] = 32'hE1803001; 
-			INSTR_MEM[14] = 32'hE2811003; 
-			INSTR_MEM[15] = 32'hE2400003; 
-			INSTR_MEM[16] = 32'hE1868127; 
-			INSTR_MEM[17] = 32'hE1869107; 
-			INSTR_MEM[18] = 32'hE186A147; 
-			INSTR_MEM[19] = 32'hE186B167; 
-			INSTR_MEM[20] = 32'hEAFFFFEA; 
-			for(i = 21; i < 128; i = i+1) begin 
+			INSTR_MEM[0] = 32'hE59F721C; 
+			INSTR_MEM[1] = 32'hE59F8214; 
+			INSTR_MEM[2] = 32'hE0879008; 
+			INSTR_MEM[3] = 32'hE047A008; 
+			INSTR_MEM[4] = 32'hE007B008; 
+			INSTR_MEM[5] = 32'hE59F6224; 
+			INSTR_MEM[6] = 32'hE59F5224; 
+			INSTR_MEM[7] = 32'hE59F4224; 
+			INSTR_MEM[8] = 32'hE0030594; 
+			INSTR_MEM[9] = 32'hE0220496; 
+			INSTR_MEM[10] = 32'hEAFFFFFE; 
+			for(i = 11; i < 128; i = i+1) begin 
 				INSTR_MEM[i] = 32'h0; 
 			end
 end
@@ -130,34 +130,44 @@ initial begin
 			DATA_CONST_MEM[5] = 32'h00000C14; 
 			DATA_CONST_MEM[6] = 32'h00000C18; 
 			DATA_CONST_MEM[7] = 32'h00000000; 
-			DATA_CONST_MEM[8] = 32'h00000007; 
-			DATA_CONST_MEM[9] = 32'h00000006; 
-			DATA_CONST_MEM[10] = 32'h00000005; 
-			DATA_CONST_MEM[11] = 32'h00000009; 
-			DATA_CONST_MEM[12] = 32'h00000804; 
-			DATA_CONST_MEM[13] = 32'h0000000F; 
-			DATA_CONST_MEM[14] = 32'h0000000A; 
-			DATA_CONST_MEM[15] = 32'h000000FF; 
-			DATA_CONST_MEM[16] = 32'h00000002; 
-			DATA_CONST_MEM[17] = 32'h00000800; 
-			DATA_CONST_MEM[18] = 32'hABCD1234; 
-			DATA_CONST_MEM[19] = 32'h65570A0D; 
-			DATA_CONST_MEM[20] = 32'h6D6F636C; 
-			DATA_CONST_MEM[21] = 32'h6F742065; 
-			DATA_CONST_MEM[22] = 32'h33474320; 
-			DATA_CONST_MEM[23] = 32'h2E373032; 
-			DATA_CONST_MEM[24] = 32'h000A0D2E; 
-			DATA_CONST_MEM[25] = 32'h0000024C; 
-			for(i = 26; i < 128; i = i+1) begin 
+			DATA_CONST_MEM[8] = 32'h00000003; 
+			DATA_CONST_MEM[9] = 32'h00000007; 
+			DATA_CONST_MEM[10] = 32'h00000006; 
+			DATA_CONST_MEM[11] = 32'h00000005; 
+			DATA_CONST_MEM[12] = 32'h00000009; 
+			DATA_CONST_MEM[13] = 32'h00000804; 
+			DATA_CONST_MEM[14] = 32'h0000000F; 
+			DATA_CONST_MEM[15] = 32'h0000000A; 
+			DATA_CONST_MEM[16] = 32'h8000000F; 
+			DATA_CONST_MEM[17] = 32'h81000004; 
+			DATA_CONST_MEM[18] = 32'h00008010; 
+			DATA_CONST_MEM[19] = 32'h000000FF; 
+			DATA_CONST_MEM[20] = 32'h00000002; 
+			DATA_CONST_MEM[21] = 32'h00000800; 
+			DATA_CONST_MEM[22] = 32'hABCD1234; 
+			DATA_CONST_MEM[23] = 32'h65570A0D; 
+			DATA_CONST_MEM[24] = 32'h6D6F636C; 
+			DATA_CONST_MEM[25] = 32'h6F742065; 
+			DATA_CONST_MEM[26] = 32'h33474320; 
+			DATA_CONST_MEM[27] = 32'h2E373032; 
+			DATA_CONST_MEM[28] = 32'h000A0D2E; 
+			DATA_CONST_MEM[29] = 32'h0000025C; 
+			for(i = 30; i < 128; i = i+1) begin 
 				DATA_CONST_MEM[i] = 32'h0; 
 			end
 end
+
+
 
 
 //----------------------------------------------------------------
 // Data (Variable) Memory
 //----------------------------------------------------------------
 initial begin
+end
+
+initial begin
+    DIP_indicator = 0;
 end
 
 //----------------------------------------------------------------
@@ -176,7 +186,8 @@ ARM ARM1(
 	MemWrite,
 	PC,
 	ALUResult,
-	WriteData
+	WriteData,
+	bigRegBank
 );
 
 //----------------------------------------------------------------
@@ -253,8 +264,17 @@ end
 always @(posedge CLK) begin
 	if (RESET)
 		SEVENSEGHEX <= 'b0;
-	else if (MemWrite && dec_7SEG)
-		SEVENSEGHEX <= WriteData;
+//	else if (MemWrite && dec_7SEG)
+//		SEVENSEGHEX <= WriteData;
+    else begin
+        for (j = 0; j<16; j = j+1) begin
+            if(DIP[j]) begin
+                DIP_indicator = j;
+            end
+        end
+        bigRegBank_indicator = ((DIP_indicator + 1) * 32) - 1;
+        SEVENSEGHEX <= bigRegBank[bigRegBank_indicator -: 32] ;
+    end
 end
 
 //----------------------------------------------------------------

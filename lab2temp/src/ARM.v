@@ -45,7 +45,8 @@ module ARM(
     output MemWrite,
     output [31:0] PC,
     output [31:0] ALUResult,
-    output [31:0] WriteData
+    output [31:0] WriteData,
+    output [511:0] bigRegBank
     );
     
     // RegFile signals
@@ -68,6 +69,7 @@ module ARM(
     wire [3:0] Rd ;
     wire [1:0] Op ;
     wire [5:0] Funct ;
+    wire [3:0] MChecker;
     //wire PCS ;
     //wire RegW ;
     //wire MemW ;
@@ -111,6 +113,13 @@ module ARM(
     wire WE_PC ;    
     wire [31:0] PC_IN ;
     //wire [31:0] PC ; 
+    
+    // MCycle signals
+    wire MStart ;
+    wire [1:0] MCycleOp ;
+    wire Busy ;
+    wire [31:0] Result1 ;
+    wire [31:0] Result2 ;
         
     // Other internal signals here
     wire [31:0] PCPlus4 ;
@@ -123,9 +132,9 @@ module ARM(
     assign PCPlus4 = PC + 4;
     assign PCPlus8 = PC + 8;
     
-    assign A1 = (RegSrc[0] == 0) ? Instr[19:16] : 15;
+    assign A1 = (RegSrc[0] == 0) ? ((MStart == 0) ? Instr[19:16] : Instr[11:8]) : 15;
     assign A2 = (RegSrc[1] == 0) ? Instr[3:0] : Instr[15:12];
-    assign A3 = Instr[15:12];
+    assign A3 = (MStart == 0) ? Instr[15:12] : Instr[19:16]; // if MUL A3 = Instr[19:16]
     assign WD3 = Result;
     assign R15 = PCPlus8;
     assign WE3 = RegWrite;
@@ -140,7 +149,8 @@ module ARM(
                     WD3,
                     R15,
                     RD1,
-                    RD2     
+                    RD2,
+                    bigRegBank    
                 );
                 
     assign InstrImm = Instr[23:0];
@@ -152,15 +162,17 @@ module ARM(
                     ExtImm
                 );
     
-    assign Rd = Instr[15:12];
+    assign Rd = ( MStart == 0) ? Instr[15:12] : Instr[19:16];
     assign Op = Instr[27:26];
     assign Funct = Instr[25:20];
+    assign MChecker = Instr[7:4];
     
     // Instantiate Decoder
     Decoder Decoder1(
                     Rd,
                     Op,
                     Funct,
+                    MChecker,
                     PCS,
                     RegW,
                     MemW,
@@ -170,7 +182,9 @@ module ARM(
                     RegSrc,
                     NoWrite,
                     ALUControl,
-                    FlagW
+                    FlagW,
+                    MCycleOp,
+                    MStart
                 );
                 
     assign Cond = Instr[31:28];
@@ -222,12 +236,25 @@ module ARM(
                     RESET,
                     WE_PC,    
                     PC_IN,
+                    Busy,
                     PC  
                 );
                 
      assign WriteData = RD2;
-     assign Result = (MemtoReg == 1) ? ReadData : ALUResult;
-                           
+     assign Result = (MemtoReg == 1) ? ReadData : ((MStart) ? Result1 : ALUResult);
+     
+     // Instantiate MCycle
+     MCycle MCycle( 
+                    CLK, 
+                    RESET, 
+                    MStart, 
+                    MCycleOp, 
+                    RD2, 
+                    RD1, 
+                    Result1, 
+                    Result2, 
+                    Busy
+        ) ;         
 endmodule
 
 
