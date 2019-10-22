@@ -34,7 +34,7 @@
 
 module MCycle
 
-    #(parameter width = 32) // Keep this at 4 to verify your algorithms with 4 bit numbers (easier). When using MCycle as a component in ARM, generic map it to 32.
+    #(parameter width = 4) // Keep this at 4 to verify your algorithms with 4 bit numbers (easier). When using MCycle as a component in ARM, generic map it to 32.
     (
         input CLK,
         input RESET, // Connect this to the reset of the ARM processor.
@@ -226,6 +226,9 @@ module MCycle
                if( count == width ) begin//last cycle?
                     if (Operand1[width-1] ^ Operand2[width-1])begin //if both signs are different, negate
                         quotient = ~quotient + 1'b1;
+                    end
+                    if (Operand1[width-1]) begin
+                        shifted_op1[width-1 :0] = ~shifted_op1[width-1 : 0] + 1'b1;
                     end
                     done <= 1'b1;
                 end

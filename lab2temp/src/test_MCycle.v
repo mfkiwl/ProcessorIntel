@@ -69,7 +69,7 @@ module test_MCycle(
         MCycleOp = 2'b10 ; //signed div
         Operand1 = 4'b1001 ; //-7
         Operand2 = 4'b0011 ; //3
-        //expected result = q = e, remainder = 1
+        //expected result = q = e, remainder = -1
         Start = 1'b1 ; // Start is asserted continously(Operations are performed back to back). To try a non-continous Start, you can uncomment the commented lines.    
 
         wait(Busy) ; // suspend initial block till condition becomes true  ;
