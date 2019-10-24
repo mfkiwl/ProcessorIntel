@@ -43,13 +43,15 @@ module CondLogic(
     input [3:0] ALUFlags,
     output PCSrc,
     output RegWrite,
-    output MemWrite
+    output MemWrite,
+    output Carry
     );
     
     reg CondEx ;
     reg N = 0, Z = 0, C = 0, V = 0 ;
     //<extra signals, if any>
     
+    assign Carry = C;
     assign PCSrc = PCS & CondEx;
     assign RegWrite = RegW & CondEx;
     assign MemWrite = MemW & CondEx;

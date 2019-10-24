@@ -92,6 +92,7 @@ module ARM(
     //wire [3:0] ALUFlags,
     wire PCSrc ;
     wire RegWrite ; 
+    wire Carry;
     //wire MemWrite
        
     // Shifter signals
@@ -103,7 +104,7 @@ module ARM(
     // ALU signals
     wire [31:0] Src_A ;
     wire [31:0] Src_B ;
-    wire [1:0] ALUControl ;
+    wire [3:0] ALUControl ;
     //wire [31:0] ALUResult ;
     wire [3:0] ALUFlags ;
     
@@ -201,7 +202,8 @@ module ARM(
                     ALUFlags,
                     PCSrc,
                     RegWrite,
-                    MemWrite
+                    MemWrite,
+                    Carry
                 );
     
     assign Sh = Instr[6:5];
@@ -224,6 +226,7 @@ module ARM(
                     Src_A,
                     Src_B,
                     ALUControl,
+                    Carry,
                     ALUResult,
                     ALUFlags
                 );                

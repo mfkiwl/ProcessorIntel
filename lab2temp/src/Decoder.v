@@ -45,7 +45,7 @@ module Decoder(
     output reg [1:0] ImmSrc,
     output reg [1:0] RegSrc,
     output reg NoWrite, //??
-    output reg [1:0] ALUControl,
+    output reg [3:0] ALUControl,
     output reg [1:0] FlagW,
     output reg [1:0] MCycleOp,
     output reg MStart
@@ -146,37 +146,37 @@ module Decoder(
             case(Funct[4:0])
                 5'b01001: // ADDS
                     begin 
-                        ALUControl = 2'b00;
+                        ALUControl = 4'b0000;
                         FlagW = 2'b11;
                         NoWrite = 0;
                     end
                 5'b01000: //ADD
                     begin 
-                        ALUControl = 2'b00;
+                        ALUControl = 4'b0000;
                         FlagW = 2'b00;
                         NoWrite = 0;
                     end
                 5'b00101: //SUBS
                     begin 
-                        ALUControl = 2'b01;
+                        ALUControl = 4'b0001;
                         FlagW = 2'b11;
                         NoWrite = 0;
                     end
                 5'b00100: // SUB
                     begin 
-                        ALUControl = 2'b01;
+                        ALUControl = 4'b0001;
                         FlagW = 2'b00;
                         NoWrite = 0;
                     end
                 5'b00001: // ANDS and MULS (MULS not required at the moment, so not configured)
                     begin 
-                        ALUControl = 2'b10;
+                        ALUControl = 4'b0010;
                         FlagW = 2'b10;
                         NoWrite = 0;
                     end
                 5'b00000: // AND and MUL
                     begin 
-                        ALUControl = 2'b10;
+                        ALUControl = 4'b0010;
                         FlagW = 2'b00;
                         NoWrite = 0;
                         if (MChecker == 4'b1001) begin
@@ -186,31 +186,31 @@ module Decoder(
                     end
                 5'b11001: // ORRS
                     begin 
-                        ALUControl = 2'b11;
+                        ALUControl = 4'b0011;
                         FlagW = 2'b10;
                         NoWrite = 0;
                     end
                 5'b11000: // ORR
                     begin 
-                        ALUControl = 2'b11;
+                        ALUControl = 4'b0011;
                         FlagW = 2'b00;
                         NoWrite = 0;
                     end
                 5'b10101: // CMPS
                     begin
-                        ALUControl = 2'b01;
+                        ALUControl = 4'b0001;
                         FlagW = 2'b11;
                         NoWrite = 1;
                     end
                 5'b11011: // MOV
                     begin
-                        ALUControl = 2'b00;
+                        ALUControl = 4'b0000;
                         FlagW = 2'b11;
                         NoWrite = 1;
                     end
                 5'b00010: // MLA (but use for DIV)
                     begin
-                        ALUControl = 2'b00;
+                        ALUControl = 4'b0101;
                         FlagW = 2'b00;
                         NoWrite = 0;
                         if (MChecker == 4'b1001) begin
@@ -218,9 +218,21 @@ module Decoder(
                             MStart = 1;
                         end
                     end
+                5'b01010: //ADC
+                    begin
+                        ALUControl = 4'b0100;
+                    end
+                5'b11100: //BIC
+                    begin
+                        ALUControl = 4'b0110;
+                    end
+                5'b11110: // MVN
+                    begin
+                        ALUControl = 4'b0111;
+                    end
                 default:
                     begin
-                        ALUControl = 2'bxx;
+                        ALUControl = 4'bxxxx;
                         FlagW = 2'bxx;
                         NoWrite = 1'bx;
                     end
