@@ -196,17 +196,17 @@ module Decoder(
                         FlagW = 2'b00;
                         NoWrite = 0;
                     end
-                5'b10101: // CMPS
+                5'b10101: // CMP
                     begin
                         ALUControl = 4'b0001;
                         FlagW = 2'b11;
                         NoWrite = 1;
                     end
-                5'b11011: // MOV
+                5'b11010: // MOV
                     begin
                         ALUControl = 4'b0000;
-                        FlagW = 2'b11;
-                        NoWrite = 1;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
                     end
                 5'b00010: // MLA (but use for DIV)
                     begin
@@ -221,14 +221,56 @@ module Decoder(
                 5'b01010: //ADC
                     begin
                         ALUControl = 4'b0100;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
                     end
                 5'b11100: //BIC
                     begin
                         ALUControl = 4'b0110;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
                     end
                 5'b11110: // MVN
                     begin
                         ALUControl = 4'b0111;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
+                    end
+                5'b10111: // CMN
+                    begin
+                        ALUControl = 4'b0000;
+                        FlagW = 2'b11;
+                        NoWrite = 1;
+                    end
+                5'b00110: // RSB
+                    begin
+                        ALUControl = 4'b1001;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
+                    end
+                5'b01110: // RSC
+                    begin
+                        ALUControl = 4'b1010;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
+                    end
+                5'b01100: // SBC
+                    begin
+                        ALUControl = 4'b1011;
+                        FlagW = 2'b00;
+                        NoWrite = 0;
+                    end
+                5'b10011: // TEQ
+                    begin
+                        ALUControl = 4'b0101;
+                        FlagW = 2'b10;
+                        NoWrite = 1;
+                    end
+                5'b10001: //TST
+                    begin
+                        ALUControl = 4'b0010;
+                        FlagW = 2'b10;
+                        NoWrite = 1;
                     end
                 default:
                     begin

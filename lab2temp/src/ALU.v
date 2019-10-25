@@ -55,13 +55,13 @@ module ALU(
         V <= 0 ;
     
         case(ALUControl)
-            4'b0000:  
+            4'b0000:  // ADD CMN
             begin
                 ALUResult_i <= S_wider[31:0] ;
                 V <= ( Src_A[31] ~^ Src_B[31] )  & ( Src_B[31] ^ S_wider[31] );          
             end
             
-            4'b0001:  
+            4'b0001:  // SUB CMP
             begin
                 C_0[0] <= 1 ;  
                 Src_B_comp <= {1'b0, ~ Src_B} ;
@@ -69,14 +69,14 @@ module ALU(
                 V <= ( Src_A[31] ^ Src_B[31] )  & ( Src_B[31] ~^ S_wider[31] );       
             end
             
-            4'b0010: ALUResult_i <= Src_A & Src_B ;
-            4'b0011: ALUResult_i <= Src_A | Src_B ;  
+            4'b0010: ALUResult_i <= Src_A & Src_B ; // AND TST
+            4'b0011: ALUResult_i <= Src_A | Src_B ;  // OR
             4'b0100: // ADC
                 begin
                     ALUResult_i <= S_wider[31:0] + Carry;
                     V <= ( Src_A[31] ~^ Src_B[31] )  & ( Src_B[31] ^ S_wider[31] ); 
                 end
-            4'b0101: // EOR
+            4'b0101: // EOR TEQ
                 begin
                     ALUResult_i <= Src_A ^ Src_B ;
                 end
@@ -87,7 +87,32 @@ module ALU(
             4'b0111: // MVN
                 begin
                     ALUResult_i <= Src_A + ~Src_B ;
-                end             
+                end
+            4'b1001: // RSB
+                begin
+                    C_0[0] <= 1 ;  
+                    Src_A_comp <= {1'b0, ~ Src_A} ;
+                    ALUResult_i <= S_wider[31:0] ;
+                    V <= ( Src_A[31] ^ Src_B[31] )  & ( Src_B[31] ~^ S_wider[31] );  
+                end
+            4'b1010: // RSC
+                begin
+                    C_0[0] <= 1 ;  
+                    Src_A_comp <= {1'b0, ~ Src_A} + ~Carry;
+                    ALUResult_i <= S_wider[31:0] ;
+                    V <= ( Src_A[31] ^ Src_B[31] )  & ( Src_B[31] ~^ S_wider[31] ); 
+                end        
+            4'b1011: // SBC
+                begin
+                    C_0[0] <= 1 ;  
+                    Src_B_comp <= {1'b0, ~ Src_B} + ~Carry;
+                    ALUResult_i <= S_wider[31:0] ;
+                    V <= ( Src_A[31] ^ Src_B[31] )  & ( Src_B[31] ~^ S_wider[31] ); 
+                end
+            4'b1100: // TEQ
+                begin
+                    
+                end
         endcase ;
     end
     
