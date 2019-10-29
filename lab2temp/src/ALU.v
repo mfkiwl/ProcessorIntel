@@ -30,7 +30,7 @@
 module ALU(
     input [31:0] Src_A,
     input [31:0] Src_B,
-    input [1:0] ALUControl,
+    input [3:0] ALUControl,
     input Carry,
     output [31:0] ALUResult,
     output [3:0] ALUFlags
@@ -86,7 +86,7 @@ module ALU(
                 end
             4'b0111: // MVN
                 begin
-                    ALUResult_i <= Src_A + ~Src_B ;
+                    ALUResult_i <= ~Src_B ;
                 end
             4'b1001: // RSB
                 begin
@@ -109,9 +109,9 @@ module ALU(
                     ALUResult_i <= S_wider[31:0] ;
                     V <= ( Src_A[31] ^ Src_B[31] )  & ( Src_B[31] ~^ S_wider[31] ); 
                 end
-            4'b1100: // TEQ
+            4'b1101: //MOV
                 begin
-                    
+                    ALUResult_i <= Src_B ;
                 end
         endcase ;
     end
