@@ -40,12 +40,12 @@ module ARM(
     input CLK,
     input RESET,
     //input Interrupt,  // for optional future use
-    input [31:0] Instr,
-    input [31:0] ReadData,
-    output MemWrite,
+    input [31:0] InstrF,
+    input [31:0] ReadDataM,
+    output reg MemWriteM,
     output [31:0] PC,
-    output [31:0] ALUResult,
-    output [31:0] WriteData,
+    output reg [31:0] ALUResultM,
+    output [31:0] WriteDataM,
     output [511:0] bigRegBank
     );
     
@@ -57,13 +57,13 @@ module ARM(
     wire [3:0] A3 ;
     wire [31:0] WD3 ;
     wire [31:0] R15 ;
-    wire [31:0] RD1 ;
-    wire [31:0] RD2 ;
+    wire [31:0] RD1D ;
+    wire [31:0] RD2D ;
     
     // Extend Module signals
-    wire [1:0] ImmSrc ;
+    wire [1:0] ImmSrcD ;
     wire [23:0] InstrImm ;
-    wire [31:0] ExtImm ;
+    wire [31:0] ExtImmD ;
     
     // Decoder signals
     wire [3:0] Rd ;
@@ -73,22 +73,23 @@ module ARM(
     //wire PCS ;
     //wire RegW ;
     //wire MemW ;
-    wire MemtoReg ;
-    wire ALUSrc ;
+    wire MemtoRegD ;
+    wire ALUSrcD ;
     //wire [1:0] ImmSrc ;
-    wire [1:0] RegSrc ;
+    wire [1:0] RegSrcD ;
     //wire NoWrite ;
     //wire [1:0] ALUControl ;
     //wire [1:0] FlagW ;
     
     // CondLogic signals
     //wire CLK ;
-    wire PCS ;
-    wire RegW ;
-    wire NoWrite ;
-    wire MemW ;
-    wire [1:0] FlagW ;
-    wire [3:0] Cond ;
+    wire [31:0] PCPlus8D;
+    wire PCSD ;
+    wire RegWD ;
+    wire NoWriteD ;
+    wire MemWD ;
+    wire [1:0] FlagWD ;
+    wire [3:0] CondD ;
     //wire [3:0] ALUFlags,
     wire PCSrc ;
     wire RegWrite ; 
@@ -102,9 +103,9 @@ module ARM(
     wire [31:0] ShOut ;
     
     // ALU signals
-    wire [31:0] Src_A ;
-    wire [31:0] Src_B ;
-    wire [3:0] ALUControl ;
+    wire [31:0] Src_AE ;
+    wire [31:0] Src_BE ;
+    reg [3:0] ALUControlD ;
     //wire [31:0] ALUResult ;
     wire [3:0] ALUFlags ;
     
@@ -123,23 +124,108 @@ module ARM(
     wire [31:0] Result2 ;
         
     // Other internal signals here
-    wire [31:0] PCPlus4 ;
+    wire [31:0] PCPlus4F ;
     wire [31:0] PCPlus8 ;
-    wire [31:0] Result ;
+    wire [31:0] ResultW ;
+    
+    //Pipelining registers
+    //D registers
+    reg [31:0] InstrD;
+    //E stage registers
+    reg [31:0] InstrE;
+    reg PCSE; //1
+    reg RegWE; //1
+    reg MemWE; //1
+    reg [1:0] FlagWE;
+    reg [3:0] ALUControlE;
+    reg MemtoRegE; //1
+    reg ALUSrcE; //1
+    reg PCSrcE; //1
+    reg RegWriteE; //1
+    reg MemWriteE; //1
+    reg [3:0] CondE;
+    reg NoWriteE;
+    wire [31:0] WriteDataE;
+    reg [31:0] ALUResultE;
+    reg [31:0] ExtImmE;
+    reg [31:0] RD1E;
+    reg [31:0] RD2E;
+    reg [3:0] WA3E;
+    
+    //M stage registers
+    reg PCSrcM;
+    reg RegWriteM;
+    reg MemtoRegM;
+    wire [31:0] ALUOutM;
+    reg [3:0] WA3M;
+    
+    // W stage registers
+    reg PCSrcW;
+    reg RegWriteW;
+    reg MemtoRegW;
+    reg [31:0] ReadDataW;
+    reg [3:0] WA3W = 0 ;
+    reg [31:0] ALUOutW = 0;
     
     // datapath connections here
     assign WE_PC = 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
 
-    assign PCPlus4 = PC + 4;
+    assign PCPlus4F = PC + 4;
     assign PCPlus8 = PC + 8;
     
-    assign A1 = (RegSrc[0] == 0) ? ((MStart == 0) ? Instr[19:16] : Instr[11:8]) : 15;
-    assign A2 = (RegSrc[1] == 0) ? Instr[3:0] : Instr[15:12];
-    assign A3 = (MStart == 0) ? Instr[15:12] : Instr[19:16]; // if MUL A3 = Instr[19:16]
-    assign WD3 = Result;
-    assign R15 = PCPlus8;
-    assign WE3 = RegWrite;
+    assign A1 = (RegSrcD[0] == 0) ? ((MStart == 0) ? InstrD[19:16] : InstrD[11:8]) : 15;
+    assign A2 = (RegSrcD[1] == 0) ? InstrD[3:0] : InstrD[15:12];
+    assign A3 = WA3W; // if MUL A3 = Instr[19:16]
+    assign WD3 = ResultW;
+    assign R15 = PCPlus8D;
+    assign WE3 = RegWriteW;
+    assign PCPlus8D = PCPlus4F;
+    assign ALUOutM = ALUResultM;
     
+    //pipeline registers datapath connection
+    //D block
+    always@(*)
+    begin
+        InstrD <= InstrF;
+    end
+    // E block
+    always@(PCSD, RegWD, MemWD, FlagWD, ALUControlD, MemtoRegD, ALUSrcD, NoWriteD)
+    begin 
+        InstrE <= InstrD;
+        PCSE <= PCSD;
+        RegWE <= RegWD;
+        MemWE <= MemWD;
+        FlagWE <= FlagWD;
+        ALUControlE <= ALUControlD;
+        MemtoRegE <= MemtoRegD;
+        ALUSrcE <= ALUSrcD;
+        NoWriteE <= NoWriteD;
+        ExtImmE <= ExtImmD;
+        CondE <= CondD;
+        RD1E <= RD1D;
+        RD2E <= RD2D;
+        WA3E <= InstrD[15:12];
+    end
+    //M block 
+    always@(PCSrcE, RegWriteE, MemWriteE, MemtoRegE)
+    begin 
+        PCSrcM <= PCSrcE;
+        RegWriteM <= RegWriteE;
+        MemWriteM <= MemWriteE;
+        MemtoRegM <= MemtoRegE;
+        ALUResultM <= ALUResultE;
+        WA3M <= WA3E;
+    end
+    //W block
+    always@(PCSrcM, RegWriteM, MemtoRegM)
+    begin
+        PCSrcW <= PCSrcM;
+        RegWriteW <= RegWriteM;
+        MemtoRegW <= MemtoRegM;
+        ReadDataW <=ReadDataM;
+        ALUOutW <= ALUOutM;
+        WA3W <= WA3M;
+    end
     // Instantiate RegFile
     RegFile RegFile1( 
                     CLK,
@@ -149,24 +235,24 @@ module ARM(
                     A3,
                     WD3,
                     R15,
-                    RD1,
-                    RD2,
+                    RD1D,
+                    RD2D,
                     bigRegBank    
                 );
                 
-    assign InstrImm = Instr[23:0];
+    assign InstrImm = InstrD[23:0];
                 
      // Instantiate Extend Module
     Extend Extend1(
-                    ImmSrc,
+                    ImmSrcD,
                     InstrImm,
-                    ExtImm
+                    ExtImmD
                 );
     
-    assign Rd = ( MStart == 0) ? Instr[15:12] : Instr[19:16];
-    assign Op = Instr[27:26];
-    assign Funct = Instr[25:20];
-    assign MChecker = Instr[7:4];
+    assign Rd = ( MStart == 0) ? InstrD[15:12] : InstrD[19:16];
+    assign Op = InstrD[27:26];
+    assign Funct = InstrD[25:20];
+    assign MChecker = InstrD[7:4];
     
     // Instantiate Decoder
     Decoder Decoder1(
@@ -174,41 +260,41 @@ module ARM(
                     Op,
                     Funct,
                     MChecker,
-                    PCS,
-                    RegW,
-                    MemW,
-                    MemtoReg,
-                    ALUSrc,
-                    ImmSrc,
-                    RegSrc,
-                    NoWrite,
-                    ALUControl,
-                    FlagW,
+                    PCSD,
+                    RegWD,
+                    MemWD,
+                    MemtoRegD,
+                    ALUSrcD,
+                    ImmSrcD,
+                    RegSrcD,
+                    NoWriteD,
+                    ALUControlD,
+                    FlagWD,
                     MCycleOp,
                     MStart
                 );
                 
-    assign Cond = Instr[31:28];
+    assign CondD = InstrD[31:28];
                                 
     // Instantiate CondLogic
     CondLogic CondLogic1(
                     CLK,
-                    PCS,
-                    RegW,
-                    NoWrite,
-                    MemW,
-                    FlagW,
-                    Cond,
+                    PCSE,
+                    RegWE,
+                    NoWriteE,
+                    MemWE,
+                    FlagWE,
+                    CondE,
                     ALUFlags,
-                    PCSrc,
-                    RegWrite,
-                    MemWrite,
+                    PCSrcE,
+                    RegWriteE,
+                    MemWriteE,
                     Carry
                 );
     
-    assign Sh = Instr[6:5];
-    assign Shamt5 = Instr[11:7];
-    assign ShIn = RD2;
+    assign Sh = InstrE[6:5];
+    assign Shamt5 = InstrE[11:7];
+    assign ShIn = RD2E;
                 
     // Instantiate Shifter        
     Shifter Shifter1(
@@ -218,20 +304,20 @@ module ARM(
                     ShOut
                 );
     
-    assign Src_A = RD1;
-    assign Src_B = (ALUSrc == 0) ? ShOut : ExtImm;
+    assign Src_AE = RD1E;
+    assign Src_BE = (ALUSrcE == 0) ? ShOut : ExtImmE;
     
     // Instantiate ALU        
     ALU ALU1(
-                    Src_A,
-                    Src_B,
-                    ALUControl,
+                    Src_AE,
+                    Src_BE,
+                    ALUControlE,
                     Carry,
-                    ALUResult,
+                    ALUResultE,
                     ALUFlags
                 );                
     
-    assign PC_IN = (PCSrc == 1) ? Result : PCPlus4;
+    assign PC_IN = (PCSrcW == 1) ? ResultW : PCPlus4F;
     
     // Instantiate ProgramCounter    
     ProgramCounter ProgramCounter1(
@@ -243,8 +329,8 @@ module ARM(
                     PC  
                 );
                 
-     assign WriteData = RD2;
-     assign Result = (MemtoReg == 1) ? ReadData : ((MStart) ? Result1 : ALUResult);
+     assign WriteDataE = RD2E;
+     assign ResultW = (MemtoRegW == 1) ? ReadDataW : ((MStart) ? Result1 : ALUOutW);
      
      // Instantiate MCycle
      MCycle MCycle( 
@@ -252,8 +338,8 @@ module ARM(
                     RESET, 
                     MStart, 
                     MCycleOp, 
-                    RD2, 
-                    RD1, 
+                    RD2D, 
+                    RD1D, 
                     Result1, 
                     Result2, 
                     Busy

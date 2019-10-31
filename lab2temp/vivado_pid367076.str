@@ -1,0 +1,1112 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:49:42 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 367076
+License: Customer
+
+Current time: 	Tue Oct 29 15:25:24 GMT+08:00 2019
+Time zone: 	GMT+08:00 (GMT+08:00)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1366x768
+Screen resolution (DPI): 100
+Available screens: 1
+Available disk space: 691 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	C:/Xilinx/Vivado/2019.1/tps/win64/jre9.0.4
+Java executable location: 	C:/Xilinx/Vivado/2019.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	wishingmaid
+User home directory: C:/Users/pigir
+User working directory: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp
+User country: 	SG
+User language: 	en
+User locale: 	en_SG
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2019.1
+RDI_DATADIR: C:/Xilinx/Vivado/2019.1/data
+RDI_BINDIR: C:/Xilinx/Vivado/2019.1/bin
+
+Vivado preferences file location: C:/Users/pigir/AppData/Roaming/Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: C:/Users/pigir/AppData/Roaming/Xilinx/Vivado/2019.1/
+Vivado layouts directory: C:/Users/pigir/AppData/Roaming/Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/vivado.log
+Vivado journal file location: 	C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/vivado.jou
+Engine tmp dir: 	C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/.Xil/Vivado-367076-LAPTOP-DK3JDSV0
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2019.1
+XILINX_VIVADO: C:/Xilinx/Vivado/2019.1
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2019.1
+
+
+GUI allocated memory:	185 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 621 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// by (cl):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\pigir\Desktop\NUS\Yr4s1\CG3207\Lab\Lab4\ProcessorIntel\lab2temp\lab2temp.xpr. Version: Vivado v2019.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/lab2temp.xpr 
+// Tcl Message: open_project C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/lab2temp.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'D:/YKT/NUS/AY1920/Sem1/CG3207/Lab/workspace/lab2temp/lab2temp' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// HMemoryUtils.trashcanNow. Engine heap size: 631 MB. GUI used memory: 44 MB. Current time: 10/29/19, 3:25:26 PM GMT+08:00
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 103 MB (+105205kb) [00:00:27]
+// [Engine Memory]: 631 MB (+509868kb) [00:00:27]
+// WARNING: HEventQueue.dispatchEvent() is taking  10205 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'. 
+// Project name: lab2temp; location: C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp; part: xc7a100tcsg324-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 663.059 ; gain = 26.773 
+dismissDialog("Open Project"); // by (cl)
+// Tcl Message: update_compile_order -fileset sources_1 
+// RDIResource.RDIViews_PROPERTIES: Properties: close view
+// Elapsed time: 30 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd)]", 1); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v)]", 2); // B (F, cl)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v)]", 2); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v)]", 2); // B (F, cl)
+// PAPropertyPanels.initPanels (ARM.v) elapsed time: 0.3s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v)]", 3, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v)]", 3, true, false, false, false, false, true); // B (F, cl) - Double Click - Node
+// [GUI Memory]: 109 MB (+1595kb) [00:01:17]
+selectCodeEditor("ARM.v", 100, 140); // cl (w, cl)
+// Elapsed time: 32 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ALURe"); // l (aT, cl)
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (aH, cl)
+unmaximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (aH, cl)
+floatFrame(PAResourceOtoP.PAViews_CODE, "ARM.v"); // az (aK, cl)
+// PAResourceOtoP.PAViews_CODE: Code: float view
+maximizeFrame(PAResourceOtoP.PAViews_CODE, "ARM.v"); // az (aK, aM)
+selectCodeEditor("ARM.v", 647, 198); // cl (w, aM)
+// Elapsed time: 13 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 262ms to process. Increasing delay to 2000 ms.
+// Elapsed time: 360 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, (String) null); // l (aT, aM)
+// Elapsed time: 304 seconds
+selectCodeEditor("ARM.v", 347, 324); // cl (w, aM)
+// Elapsed time: 13 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+// Elapsed time: 11 seconds
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WD3", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WD3"); // l (aT, aM)
+// Elapsed time: 563 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, (String) null); // l (aT, aM)
+selectCodeEditor("ARM.v", 301, 194); // cl (w, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 51 MB. Current time: 10/29/19, 3:55:27 PM GMT+08:00
+// Elapsed time: 1627 seconds
+selectCodeEditor("ARM.v", 551, 310); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 498 seconds
+selectCodeEditor("ARM.v", 99, 379); // cl (w, aM)
+// Elapsed time: 72 seconds
+selectCodeEditor("ARM.v", 162, 331); // cl (w, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 4:25:27 PM GMT+08:00
+// Elapsed time: 38 seconds
+selectCodeEditor("ARM.v", 349, 397); // cl (w, aM)
+selectCodeEditor("ARM.v", 333, 440); // cl (w, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 432, 168); // cl (w, aM)
+// Elapsed time: 12 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCS", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCS"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCS"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCS"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCS"); // l (aT, aM)
+selectCodeEditor("ARM.v", 117, 71); // cl (w, aM)
+// Elapsed time: 131 seconds
+selectCodeEditor("ARM.v", 160, 344); // cl (w, aM)
+// Elapsed time: 39 seconds
+selectCodeEditor("ARM.v", 208, 438); // cl (w, aM)
+// Elapsed time: 23 seconds
+selectCodeEditor("ARM.v", 152, 245); // cl (w, aM)
+// Elapsed time: 61 seconds
+selectCodeEditor("ARM.v", 180, 228); // cl (w, aM)
+selectCodeEditor("ARM.v", 293, 295); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectCodeEditor("ARM.v", 196, 246); // cl (w, aM)
+// Elapsed time: 62 seconds
+selectCodeEditor("ARM.v", 572, 239); // cl (w, aM)
+// Elapsed time: 13 seconds
+selectCodeEditor("ARM.v", 331, 131); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 135 seconds
+selectCodeEditor("ARM.v", 278, 359); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 103 seconds
+selectCodeEditor("ARM.v", 159, 449); // cl (w, aM)
+// Elapsed time: 31 seconds
+selectCodeEditor("ARM.v", 53, 312); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 87, 332); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 16 seconds
+selectCodeEditor("ARM.v", 87, 332); // cl (w, aM)
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+// Elapsed time: 39 seconds
+selectCodeEditor("ARM.v", 265, 330); // cl (w, aM)
+// Elapsed time: 16 seconds
+selectCodeEditor("ARM.v", 100, 327); // cl (w, aM)
+// Elapsed time: 68 seconds
+selectCodeEditor("ARM.v", 223, 472); // cl (w, aM)
+// Elapsed time: 62 seconds
+selectCodeEditor("ARM.v", 268, 405); // cl (w, aM)
+// Elapsed time: 18 seconds
+selectCodeEditor("ARM.v", 147, 414); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 283, 330); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 257, 413); // cl (w, aM)
+selectCodeEditor("ARM.v", 135, 315); // cl (w, aM)
+selectCodeEditor("ARM.v", 329, 143); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 165 seconds
+selectCodeEditor("ARM.v", 148, 126); // cl (w, aM)
+selectCodeEditor("ARM.v", 715, 293); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ARM.v", 181, 91); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ARM.v", 1112, 373); // cl (w, aM)
+selectCodeEditor("ARM.v", 669, 417); // cl (w, aM)
+// Elapsed time: 14 seconds
+selectCodeEditor("ARM.v", 154, 399); // cl (w, aM)
+selectCodeEditor("ARM.v", 159, 401); // cl (w, aM)
+// Elapsed time: 20 seconds
+unMaximizeFrame(PAResourceOtoP.PAViews_CODE, "ARM.v"); // az (aK, aM)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), CondLogic1 : CondLogic (CondLogic.v)]", 7, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), CondLogic1 : CondLogic (CondLogic.v)]", 7, false, false, false, false, false, true); // B (F, cl) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Decoder1 : Decoder (Decoder.v)]", 6, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Decoder1 : Decoder (Decoder.v)]", 6, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Elapsed time: 14 seconds
+maximizeFrame(PAResourceOtoP.PAViews_CODE, "ARM.v"); // az (aK, aM)
+selectCodeEditor("ARM.v", 417, 302); // cl (w, aM)
+// Elapsed time: 46 seconds
+selectCodeEditor("ARM.v", 603, 282); // cl (w, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ALUControl", true); // l (aT, aM)
+selectCodeEditor("ARM.v", 176, 553); // cl (w, aM)
+typeControlKey(null, null, 'z');
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 34 seconds
+selectCodeEditor("ARM.v", 195, 398); // cl (w, aM)
+// Elapsed time: 12 seconds
+selectCodeEditor("ARM.v", 197, 365); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 53 seconds
+selectCodeEditor("ARM.v", 140, 314); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 11 seconds
+selectCodeEditor("ARM.v", 172, 315); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 48 seconds
+selectCodeEditor("ARM.v", 218, 385); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 33 seconds
+selectCodeEditor("ARM.v", 204, 348); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 43 seconds
+selectCodeEditor("ARM.v", 170, 433); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 78 seconds
+selectCodeEditor("ARM.v", 167, 244); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 194 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+selectCodeEditor("ARM.v", 111, 161); // cl (w, aM)
+// Elapsed time: 33 seconds
+selectCodeEditor("ARM.v", 523, 145); // cl (w, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/29/19, 4:55:27 PM GMT+08:00
+// Elapsed time: 67 seconds
+selectCodeEditor("ARM.v", 519, 234); // cl (w, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+// Elapsed time: 16 seconds
+selectCodeEditor("ARM.v", 62, 166); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HEventQueue.dispatchEvent() is taking  4069132 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 49 MB. Current time: 10/29/19, 6:10:08 PM GMT+08:00
+// Elapsed time: 4446 seconds
+selectCodeEditor("ARM.v", 386, 425); // cl (w, aM)
+// Elapsed time: 214 seconds
+selectCodeEditor("ARM.v", 554, 281); // cl (w, aM)
+// Elapsed time: 104 seconds
+selectCodeEditor("ARM.v", 180, 300); // cl (w, aM)
+// Elapsed time: 80 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCSrc"); // l (aT, aM)
+selectCodeEditor("ARM.v", 535, 151); // cl (w, aM)
+// Elapsed time: 223 seconds
+selectCodeEditor("ARM.v", 452, 314); // cl (w, aM)
+// Elapsed time: 18 seconds
+typeControlKey(null, null, 'z');
+// Elapsed time: 306 seconds
+selectCodeEditor("ARM.v", 113, 110); // cl (w, aM)
+// Elapsed time: 126 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+selectCodeEditor("ARM.v", 444, 454); // cl (w, aM)
+// Elapsed time: 20 seconds
+selectCodeEditor("ARM.v", 157, 82); // cl (w, aM)
+// Elapsed time: 12 seconds
+selectCodeEditor("ARM.v", 357, 525); // cl (w, aM)
+typeControlKey(null, null, 'z');
+// Elapsed time: 31 seconds
+selectCodeEditor("ARM.v", 311, 417); // cl (w, aM)
+selectCodeEditor("ARM.v", 312, 422); // cl (w, aM)
+selectCodeEditor("ARM.v", 314, 414); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 177, 397); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 37 seconds
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 127 seconds
+selectCodeEditor("ARM.v", 186, 319); // cl (w, aM)
+// Elapsed time: 39 seconds
+selectCodeEditor("ARM.v", 131, 223); // cl (w, aM)
+// Elapsed time: 14 seconds
+selectCodeEditor("ARM.v", 111, 247); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 233, 415); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 34 seconds
+selectCodeEditor("ARM.v", 147, 316); // cl (w, aM)
+// Elapsed time: 38 seconds
+selectCodeEditor("ARM.v", 210, 393); // cl (w, aM)
+// Elapsed time: 196 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, (String) null); // l (aT, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/29/19, 6:40:11 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/29/19, 7:10:11 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 7:40:11 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 8:10:12 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 8:40:12 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 9:10:12 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/29/19, 9:40:13 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 10:10:13 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 10:40:14 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/29/19, 11:10:14 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/29/19, 11:40:14 PM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  30015869 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 8:30:30 AM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/30/19, 9:00:31 AM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 9:30:31 AM GMT+08:00
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 4483 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 4485 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 3806 ms. Increasing delay to 11418 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 14 ms. Decreasing delay to 2014 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 10:00:31 AM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  1114798 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1589 ms. Increasing delay to 4767 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 10:30:34 AM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  4514158 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 2613ms to process. Increasing delay to 2000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2613 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 2065ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2065 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 11:57:02 AM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 12:26:57 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/30/19, 12:56:58 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 1:26:58 PM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  514043 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/30/19, 1:56:58 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 2:26:59 PM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  23070132 ms.
+// WARNING: HTimer (HMemoryUtils Timer) is taking 3222ms to process. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2862 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/30/19, 9:06:13 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 9:36:16 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 10:06:16 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/30/19, 10:36:16 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/30/19, 11:06:17 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/30/19, 11:36:17 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 47 MB. Current time: 10/31/19, 12:06:17 AM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  783767 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2880 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 43 MB. Current time: 10/31/19, 8:49:55 AM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  5601 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 44 MB. Current time: 10/31/19, 9:19:50 AM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 43 MB. Current time: 10/31/19, 9:49:50 AM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  1494175 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2762 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 43 MB. Current time: 10/31/19, 10:35:06 AM GMT+08:00
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 1231 ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3461127 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 3402 ms. Increasing delay to 10206 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3427 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 43 MB. Current time: 10/31/19, 11:52:06 AM GMT+08:00
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 8 ms. Decreasing delay to 2008 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2772904 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 2777141 ms. Increasing delay to 8331423 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3752 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 43 MB. Current time: 10/31/19, 12:54:21 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 43 MB. Current time: 10/31/19, 1:24:18 PM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  2524284 ms.
+// WARNING: HTimer (MainWindowUtils Timer) is taking 3227ms to process. Increasing delay to 11000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2842 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 43 MB. Current time: 10/31/19, 2:16:31 PM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  2326 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2843 ms.
+// Elapsed time: 157068 seconds
+selectCodeEditor("ARM.v", 423, 189); // cl (w, aM)
+selectCodeEditor("ARM.v", 720, 357); // cl (w, aM)
+// Elapsed time: 33 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RD1", true); // l (aT, aM)
+// Elapsed time: 21 seconds
+selectCodeEditor("ARM.v", 331, 271); // cl (w, aM)
+// Elapsed time: 20 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Src_A"); // l (aT, aM)
+selectCodeEditor("ARM.v", 111, 451); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 55, 454); // cl (w, aM)
+selectCodeEditor("ARM.v", 244, 355); // cl (w, aM)
+selectCodeEditor("ARM.v", 255, 288); // cl (w, aM)
+selectCodeEditor("ARM.v", 273, 314); // cl (w, aM)
+selectCodeEditor("ARM.v", 277, 305); // cl (w, aM)
+// Elapsed time: 19 seconds
+selectCodeEditor("ARM.v", 103, 145); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 133, 264); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 12 seconds
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 183, 282); // cl (w, aM)
+// Elapsed time: 44 seconds
+selectCodeEditor("ARM.v", 166, 300); // cl (w, aM)
+// Elapsed time: 17 seconds
+selectCodeEditor("ARM.v", 139, 344); // cl (w, aM)
+selectCodeEditor("ARM.v", 255, 211); // cl (w, aM)
+selectCodeEditor("ARM.v", 252, 194); // cl (w, aM)
+// Elapsed time: 36 seconds
+selectCodeEditor("ARM.v", 168, 367); // cl (w, aM)
+// Elapsed time: 46 seconds
+selectCodeEditor("ARM.v", 297, 503); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 277, 334); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 103, 346); // cl (w, aM)
+selectCodeEditor("ARM.v", 281, 421); // cl (w, aM)
+selectCodeEditor("ARM.v", 323, 377); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 1602ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1603 ms.
+// Elapsed time: 75 seconds
+selectCodeEditor("ARM.v", 353, 270); // cl (w, aM)
+selectCodeEditor("ARM.v", 353, 272); // cl (w, aM)
+selectCodeEditor("ARM.v", 353, 280); // cl (w, aM)
+// Elapsed time: 26 seconds
+selectCodeEditor("ARM.v", 172, 328); // cl (w, aM)
+selectCodeEditor("ARM.v", 144, 351); // cl (w, aM)
+selectCodeEditor("ARM.v", 145, 349); // cl (w, aM)
+// Elapsed time: 115 seconds
+selectCodeEditor("ARM.v", 183, 348); // cl (w, aM)
+// Elapsed time: 17 seconds
+selectCodeEditor("ARM.v", 95, 385); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 240, 277); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 51 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Result", true); // l (aT, aM)
+selectCodeEditor("ARM.v", 171, 236); // cl (w, aM)
+// Elapsed time: 16 seconds
+selectCodeEditor("ARM.v", 271, 356); // cl (w, aM)
+// Elapsed time: 11 seconds
+selectCodeEditor("ARM.v", 50, 227); // cl (w, aM)
+selectCodeEditor("ARM.v", 78, 237); // cl (w, aM)
+selectCodeEditor("ARM.v", 54, 229); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+// Elapsed time: 37 seconds
+selectCodeEditor("ARM.v", 136, 413); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 16 seconds
+selectCodeEditor("ARM.v", 183, 369); // cl (w, aM)
+// Elapsed time: 11 seconds
+selectCodeEditor("ARM.v", 198, 375); // cl (w, aM)
+// Elapsed time: 13 seconds
+selectCodeEditor("ARM.v", 109, 335); // cl (w, aM)
+selectCodeEditor("ARM.v", 120, 331); // cl (w, aM)
+selectCodeEditor("ARM.v", 126, 330); // cl (w, aM)
+// Elapsed time: 31 seconds
+selectCodeEditor("ARM.v", 253, 246); // cl (w, aM)
+selectCodeEditor("ARM.v", 227, 387); // cl (w, aM)
+selectCodeEditor("ARM.v", 264, 367); // cl (w, aM)
+// Elapsed time: 40 seconds
+selectCodeEditor("ARM.v", 195, 331); // cl (w, aM)
+// Elapsed time: 19 seconds
+selectCodeEditor("ARM.v", 27, 348); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 27, 230); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 25, 333); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 28, 246); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 195, 247); // cl (w, aM)
+// Elapsed time: 25 seconds
+selectCodeEditor("ARM.v", 57, 56); // cl (w, aM)
+// Elapsed time: 13 seconds
+selectCodeEditor("ARM.v", 28, 163); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 27, 179); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 285, 178); // cl (w, aM)
+// Elapsed time: 38 seconds
+selectCodeEditor("ARM.v", 201, 264); // cl (w, aM)
+// Elapsed time: 95 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData"); // l (aT, aM)
+// Elapsed time: 150 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ReadData"); // l (aT, aM)
+selectCodeEditor("ARM.v", 101, 286); // cl (w, aM)
+selectCodeEditor("ARM.v", 340, 276); // cl (w, aM)
+selectCodeEditor("ARM.v", 336, 286); // cl (w, aM)
+// Elapsed time: 105 seconds
+selectCodeEditor("ARM.v", 175, 127); // cl (w, aM)
+selectCodeEditor("ARM.v", 290, 160); // cl (w, aM)
+selectCodeEditor("ARM.v", 269, 145); // cl (w, aM)
+// Elapsed time: 15 seconds
+selectCodeEditor("ARM.v", 180, 281); // cl (w, aM)
+// Elapsed time: 29 seconds
+selectCodeEditor("ARM.v", 186, 376); // cl (w, aM)
+selectCodeEditor("ARM.v", 224, 364); // cl (w, aM)
+// Elapsed time: 28 seconds
+selectCodeEditor("ARM.v", 70, 335); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 156, 246); // cl (w, aM)
+// Elapsed time: 15 seconds
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 25 seconds
+selectCodeEditor("ARM.v", 151, 312); // cl (w, aM)
+// Elapsed time: 58 seconds
+selectCodeEditor("ARM.v", 186, 247); // cl (w, aM)
+// Elapsed time: 123 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v)]", 2, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v)]", 2, true, false, false, false, false, true); // B (F, cl) - Double Click - Node
+selectCodeEditor("Wrapper.v", 92, 27); // cl (w, cl)
+// Elapsed time: 19 seconds
+selectCodeEditor("ARM.v", 543, 231); // cl (w, aM)
+selectCodeEditor("ARM.v", 536, 326); // cl (w, aM)
+selectCodeEditor("ARM.v", 565, 288); // cl (w, aM)
+selectCodeEditor("ARM.v", 569, 272); // cl (w, aM)
+// Elapsed time: 15 seconds
+selectCodeEditor("ARM.v", 582, 314); // cl (w, aM)
+// Elapsed time: 23 seconds
+selectCodeEditor("ARM.v", 128, 160); // cl (w, aM)
+selectCodeEditor("ARM.v", 171, 212); // cl (w, aM)
+selectCodeEditor("ARM.v", 237, 252); // cl (w, aM)
+selectCodeEditor("ARM.v", 587, 162); // cl (w, aM)
+selectCodeEditor("ARM.v", 598, 160); // cl (w, aM)
+// Elapsed time: 46 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "result"); // l (aT, aM)
+// Elapsed time: 14 seconds
+selectCodeEditor("ARM.v", 162, 399); // cl (w, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/31/19, 2:46:28 PM GMT+08:00
+// Elapsed time: 11 seconds
+selectCodeEditor("ARM.v", 176, 383); // cl (w, aM)
+// Elapsed time: 56 seconds
+selectCodeEditor("ARM.v", 259, 328); // cl (w, aM)
+// Elapsed time: 79 seconds
+selectCodeEditor("ARM.v", 285, 185); // cl (w, aM)
+// Elapsed time: 14 seconds
+selectCodeEditor("ARM.v", 77, 228); // cl (w, aM)
+// Elapsed time: 24 seconds
+selectCodeEditor("ARM.v", 76, 229); // cl (w, aM)
+selectCodeEditor("ARM.v", 160, 229); // cl (w, aM)
+selectCodeEditor("ARM.v", 176, 231); // cl (w, aM)
+selectCodeEditor("ARM.v", 245, 281); // cl (w, aM)
+// Elapsed time: 12 seconds
+selectCodeEditor("ARM.v", 96, 286); // cl (w, aM)
+selectCodeEditor("ARM.v", 98, 281); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 254, 281); // cl (w, aM)
+selectCodeEditor("ARM.v", 247, 281); // cl (w, aM)
+// Elapsed time: 12 seconds
+selectCodeEditor("ARM.v", 211, 269); // cl (w, aM)
+selectCodeEditor("ARM.v", 174, 284); // cl (w, aM)
+selectCodeEditor("ARM.v", 207, 266); // cl (w, aM)
+selectCodeEditor("ARM.v", 239, 248); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 25 seconds
+selectCodeEditor("ARM.v", 190, 378); // cl (w, aM)
+// Elapsed time: 28 seconds
+selectCodeEditor("ARM.v", 453, 332); // cl (w, aM)
+selectCodeEditor("ARM.v", 468, 275); // cl (w, aM)
+// Elapsed time: 34 seconds
+selectCodeEditor("ARM.v", 50, 387); // cl (w, aM)
+selectCodeEditor("ARM.v", 53, 387, false, false, false, false, true); // cl (w, aM) - Double Click
+selectCodeEditor("ARM.v", 52, 390); // cl (w, aM)
+selectCodeEditor("ARM.v", 364, 381); // cl (w, aM)
+// Elapsed time: 11 seconds
+selectCodeEditor("ARM.v", 273, 364); // cl (w, aM)
+selectCodeEditor("ARM.v", 277, 364, false, false, false, false, true); // cl (w, aM) - Double Click
+typeControlKey(null, null, 'z');
+// Elapsed time: 32 seconds
+selectCodeEditor("ARM.v", 592, 222); // cl (w, aM)
+// Elapsed time: 49 seconds
+selectCodeEditor("ARM.v", 442, 191); // cl (w, aM)
+// Elapsed time: 21 seconds
+selectCodeEditor("ARM.v", 55, 314); // cl (w, aM)
+// Elapsed time: 124 seconds
+selectCodeEditor("ARM.v", 54, 128); // cl (w, aM)
+// Elapsed time: 358 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondE", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondE"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondE"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondE"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondE"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondE"); // l (aT, aM)
+// Elapsed time: 19 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondE"); // l (aT, aM)
+selectCodeEditor("ARM.v", 107, 382); // cl (w, aM)
+// Elapsed time: 42 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "COND", true); // l (aT, aM)
+// Elapsed time: 16 seconds
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "COND"); // l (aT, aM)
+selectCodeEditor("ARM.v", 133, 144); // cl (w, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond", true); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+selectCodeEditor("ARM.v", 133, 143); // cl (w, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+selectCodeEditor("ARM.v", 69, 555); // cl (w, aM)
+// Elapsed time: 17 seconds
+selectCodeEditor("ARM.v", 249, 447); // cl (w, aM)
+selectCodeEditor("ARM.v", 249, 437); // cl (w, aM)
+// Elapsed time: 23 seconds
+selectCodeEditor("ARM.v", 214, 247); // cl (w, aM)
+selectCodeEditor("ARM.v", 169, 468); // cl (w, aM)
+selectCodeEditor("ARM.v", 125, 263); // cl (w, aM)
+selectCodeEditor("ARM.v", 166, 468); // cl (w, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+selectCodeEditor("ARM.v", 112, 547); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Cond"); // l (aT, aM)
+selectCodeEditor("ARM.v", 141, 144); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 42 seconds
+selectCodeEditor("ARM.v", 188, 383); // cl (w, aM)
+// Elapsed time: 34 seconds
+selectCodeEditor("ARM.v", 133, 331); // cl (w, aM)
+selectCodeEditor("ARM.v", 444, 361); // cl (w, aM)
+// Elapsed time: 16 seconds
+selectCodeEditor("ARM.v", 120, 316); // cl (w, aM)
+selectCodeEditor("ARM.v", 124, 313); // cl (w, aM)
+// Elapsed time: 12 seconds
+selectCodeEditor("ARM.v", 1026, 307); // cl (w, aM)
+// Elapsed time: 11 seconds
+selectCodeEditor("ARM.v", 77, 217); // cl (w, aM)
+// Elapsed time: 33 seconds
+selectCodeEditor("ARM.v", 63, 127); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 54, 176); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 24 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeData", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeData"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "writeData"); // l (aT, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 77, 27); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 52, 229); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 21 seconds
+selectCodeEditor("ARM.v", 58, 296); // cl (w, aM)
+selectCodeEditor("ARM.v", 56, 504); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 52, 299); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 31 seconds
+selectCodeEditor("ARM.v", 97, 348); // cl (w, aM)
+// Elapsed time: 24 seconds
+selectCodeEditor("ARM.v", 130, 333); // cl (w, aM)
+selectCodeEditor("ARM.v", 158, 345); // cl (w, aM)
+selectCodeEditor("ARM.v", 159, 467); // cl (w, aM)
+selectCodeEditor("ARM.v", 190, 315); // cl (w, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 144, 315); // cl (w, aM)
+// Elapsed time: 12 seconds
+selectCodeEditor("ARM.v", 222, 364); // cl (w, aM)
+// Elapsed time: 33 seconds
+selectCodeEditor("ARM.v", 48, 216); // cl (w, aM)
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+// Elapsed time: 15 seconds
+selectCodeEditor("ARM.v", 57, 312); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 175, 267); // cl (w, aM)
+// Elapsed time: 10 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData"); // l (aT, aM)
+selectCodeEditor("ARM.v", 198, 511); // cl (w, aM)
+// Elapsed time: 32 seconds
+selectCodeEditor("ARM.v", 54, 230); // cl (w, aM)
+// Elapsed time: 12 seconds
+selectCodeEditor("ARM.v", 147, 264); // cl (w, aM)
+// Elapsed time: 37 seconds
+selectCodeEditor("ARM.v", 371, 293); // cl (w, aM)
+// Elapsed time: 35 seconds
+selectCodeEditor("ARM.v", 256, 480); // cl (w, aM)
+// Elapsed time: 27 seconds
+selectCodeEditor("ARM.v", 228, 396); // cl (w, aM)
+selectCodeEditor("ARM.v", 268, 384); // cl (w, aM)
+// Elapsed time: 19 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Src_AE", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Src_AE"); // l (aT, aM)
+selectCodeEditor("ARM.v", 46, 26); // cl (w, aM)
+selectCodeEditor("ARM.v", 305, 103); // cl (w, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/31/19, 3:16:28 PM GMT+08:00
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 168 seconds
+selectCodeEditor("ARM.v", 195, 350); // cl (w, aM)
+// Elapsed time: 18 seconds
+selectCodeEditor("ARM.v", 203, 38); // cl (w, aM)
+// Elapsed time: 227 seconds
+selectCodeEditor("ARM.v", 360, 325); // cl (w, aM)
+// Elapsed time: 13 seconds
+selectCodeEditor("ARM.v", 27, 396); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 256, 363); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 85, 364); // cl (w, aM)
+// Elapsed time: 45 seconds
+selectCodeEditor("ARM.v", 154, 194); // cl (w, aM)
+selectCodeEditor("ARM.v", 327, 269); // cl (w, aM)
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 259, 285); // cl (w, aM)
+// Elapsed time: 37 seconds
+selectCodeEditor("ARM.v", 144, 380); // cl (w, aM)
+// Elapsed time: 14 seconds
+selectCodeEditor("ARM.v", 190, 352); // cl (w, aM)
+// Elapsed time: 80 seconds
+selectCodeEditor("ARM.v", 167, 262); // cl (w, aM)
+// Elapsed time: 17 seconds
+selectCodeEditor("ARM.v", 148, 385); // cl (w, aM)
+// Elapsed time: 114 seconds
+selectCodeEditor("ARM.v", 184, 176); // cl (w, aM)
+selectCodeEditor("ARM.v", 26, 160); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 113, 191); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+selectCodeEditor("ARM.v", 298, 223); // cl (w, aM)
+// Elapsed time: 53 seconds
+selectCodeEditor("ARM.v", 160, 216); // cl (w, aM)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 6501 ms to process. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 5094 ms to process. Increasing delay to 4000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 6592 ms to process. Increasing delay to 2000 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 48 MB. Current time: 10/31/19, 3:46:28 PM GMT+08:00
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 13 ms. Decreasing delay to 2013 ms.
+// Elapsed time: 1794 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+// Elapsed time: 45 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC_IN"); // l (aT, aM)
+selectCodeEditor("ARM.v", 170, 554); // cl (w, aM)
+selectCodeEditor("ARM.v", 175, 558); // cl (w, aM)
+selectCodeEditor("ARM.v", 329, 527); // cl (w, aM)
+selectCodeEditor("ARM.v", 559, 488); // cl (w, aM)
+selectCodeEditor("ARM.v", 322, 332); // cl (w, aM)
+// Elapsed time: 38 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC_IN", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC_IN"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+// Elapsed time: 38 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrF", true); // l (aT, aM)
+// Elapsed time: 18 seconds
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrF"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Instr"); // l (aT, aM)
+// Elapsed time: 239 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondD", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondD"); // l (aT, aM)
+// Elapsed time: 14 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RA1D", true); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RA1", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RA1"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RA", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RA"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RA1", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RA1"); // l (aT, aM)
+// Elapsed time: 34 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "A1", true); // l (aT, aM)
+// Elapsed time: 88 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ExtImmD", true); // l (aT, aM)
+// Elapsed time: 29 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v)]", 2); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v)]", 3); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Shifter1 : Shifter (Shifter.v)]", 8, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Shifter1 : Shifter (Shifter.v)]", 8, true, false, false, false, false, true); // B (F, cl) - Double Click - Node
+// Elapsed time: 11 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ExtImmD"); // l (aT, aM)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Shifter1 : Shifter (Shifter.v)]", 8); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Extend1 : Extend (Extend.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Extend1 : Extend (Extend.v)]", 5, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Elapsed time: 10 seconds
+selectCodeEditor("ARM.v", 188, 520); // cl (w, aM)
+// Elapsed time: 26 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm"); // l (aT, aM)
+// Elapsed time: 16 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "A3", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "A3"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "A3"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "A3"); // l (aT, aM)
+// Elapsed time: 45 seconds
+selectCodeEditor("ARM.v", 206, 449); // cl (w, aM)
+// Elapsed time: 32 seconds
+selectCodeEditor("ARM.v", 112, 436); // cl (w, aM)
+// Elapsed time: 68 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WA3D", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WA3D"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WA3D"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WA3D"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WA3D"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WA3E", true); // l (aT, aM)
+// Elapsed time: 79 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ImmSrcD", true); // l (aT, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 49 MB. Current time: 10/31/19, 4:16:29 PM GMT+08:00
+// Elapsed time: 119 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrImm", true); // l (aT, aM)
+// Elapsed time: 43 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RD1D", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RD1D"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RD1D"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RD1D"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "RD1D"); // l (aT, aM)
+// Elapsed time: 18 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+// Elapsed time: 37 seconds
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), CondLogic1 : CondLogic (CondLogic.v)]", 7, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), CondLogic1 : CondLogic (CondLogic.v)]", 7, false, false, false, false, false, true); // B (F, cl) - Double Click
+selectCodeEditor("CondLogic.v", 259, 105); // cl (w, cl)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite", true); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, cl)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite", true); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+// Elapsed time: 25 seconds
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+// Elapsed time: 19 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "NoWrite"); // l (aT, cl)
+// Elapsed time: 15 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Decoder.v", 2); // k (j, cl)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "Nowrite", true); // l (aT, cl)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, (String) null); // l (aT, cl)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CondLogic.v", 1); // k (j, cl)
+// Elapsed time: 64 seconds
+selectCodeEditor("CondLogic.v", 92, 110); // cl (w, cl)
+selectCodeEditor("CondLogic.v", 93, 76); // cl (w, cl)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "noWrite"); // l (aT, aM)
+// Elapsed time: 88 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrE", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrE"); // l (aT, aM)
+// Elapsed time: 20 seconds
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrE"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrE"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrE"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "InstrE"); // l (aT, aM)
+// Elapsed time: 181 seconds
+selectCodeEditor("ARM.v", 203, 246); // cl (w, aM)
+// Elapsed time: 96 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "CondLogic", true); // l (aT, aM)
+selectCodeEditor("ARM.v", 174, 263); // cl (w, aM)
+// Elapsed time: 108 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ALUFlags", true); // l (aT, aM)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), ALU1 : ALU (ALU.v)]", 9, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), ALU1 : ALU (ALU.v)]", 9, false, false, false, false, false, true); // B (F, cl) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Decoder.v", 2); // k (j, cl)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CondLogic.v", 1); // k (j, cl)
+// Elapsed time: 81 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteDataE", true); // l (aT, aM)
+// Elapsed time: 71 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData", true); // l (aT, aM)
+// Elapsed time: 28 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteDataE", true); // l (aT, aM)
+// Elapsed time: 80 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData"); // l (aT, aM)
+// Elapsed time: 32 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WriteData"); // l (aT, aM)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), Extend1 : Extend (Extend.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), RegFile1 : RegFile (RegFile.v)]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd), Wrapper1 : Wrapper (Wrapper.v), ARM1 : ARM (ARM.v), RegFile1 : RegFile (RegFile.v)]", 4, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Elapsed time: 75 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "WA3E", true); // l (aT, aM)
+// Elapsed time: 312 seconds
+selectCodeEditor("ARM.v", 196, 281); // cl (w, aM)
+// Elapsed time: 78 seconds
+selectCodeEditor("ARM.v", 186, 318); // cl (w, aM)
+// Elapsed time: 53 seconds
+selectCodeEditor("ARM.v", 169, 344); // cl (w, aM)
+selectCodeEditor("ARM.v", 49, 367); // cl (w, aM)
+// Elapsed time: 34 seconds
+selectCodeEditor("ARM.v", 81, 267); // cl (w, aM)
+// Elapsed time: 15 seconds
+selectCodeEditor("ARM.v", 214, 466); // cl (w, aM)
+// HMemoryUtils.trashcanNow. Engine heap size: 637 MB. GUI used memory: 50 MB. Current time: 10/31/19, 4:46:29 PM GMT+08:00
+// Elapsed time: 52 seconds
+selectCodeEditor("ARM.v", 148, 448); // cl (w, aM)
+selectCodeEditor("ARM.v", 214, 382); // cl (w, aM)
+// Elapsed time: 70 seconds
+selectCodeEditor("ARM.v", 247, 292); // cl (w, aM)
+selectCodeEditor("ARM.v", 273, 310); // cl (w, aM)
+// Elapsed time: 42 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ALUOutM", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ALUOutM"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ALUOutM"); // l (aT, aM)
+// Elapsed time: 195 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ResultW", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ResultW"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ResultW"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ResultW"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "ResultW"); // l (aT, aM)
+// Elapsed time: 31 seconds
+selectCodeEditor("ARM.v", 411, 555); // cl (w, aM)
+// Elapsed time: 126 seconds
+selectCodeEditor("ARM.v", 378, 554); // cl (w, aM)
+selectCodeEditor("ARM.v", 435, 555); // cl (w, aM)
+// Elapsed time: 109 seconds
+selectCodeEditor("ARM.v", 167, 243); // cl (w, aM)
+selectCodeEditor("ARM.v", 269, 282); // cl (w, aM)
+selectCodeEditor("ARM.v", 118, 244); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+selectCodeEditor("ARM.v", 117, 282); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'v'); // cl (w, aM)
+// Elapsed time: 27 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+selectCodeEditor("ARM.v", 145, 414); // cl (w, aM)
+// Elapsed time: 34 seconds
+selectCodeEditor("ARM.v", 75, 314); // cl (w, aM)
+typeControlKey(null, null, 'z');
+selectCodeEditor("ARM.v", 82, 315); // cl (w, aM)
+selectCodeEditor("ARM.v", 79, 315); // cl (w, aM)
+typeControlKey((HResource) null, "ARM.v", 'c'); // cl (w, aM)
+// Elapsed time: 17 seconds
+selectCodeEditor("ARM.v", 154, 130); // cl (w, aM)
+selectCodeEditor("ARM.v", 732, 275); // cl (w, aM)
+// Elapsed time: 15 seconds
+selectCodeEditor("ARM.v", 125, 316); // cl (w, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCPlus"); // l (aT, aM)
+selectCodeEditor("ARM.v", 162, 26); // cl (w, aM)
+selectCodeEditor("ARM.v", 203, 308); // cl (w, aM)
+selectCodeEditor("ARM.v", 363, 230); // cl (w, aM)
+// Elapsed time: 28 seconds
+selectCodeEditor("ARM.v", 132, 197); // cl (w, aM)
+// Elapsed time: 84 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Wrapper.v", 3); // k (j, cl)
