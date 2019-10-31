@@ -1110,3 +1110,96 @@ selectCodeEditor("ARM.v", 363, 230); // cl (w, aM)
 selectCodeEditor("ARM.v", 132, 197); // cl (w, aM)
 // Elapsed time: 84 seconds
 selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Wrapper.v", 3); // k (j, cl)
+// Elapsed time: 78 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCF", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PCF"); // l (aT, aM)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+// Elapsed time: 105 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC", true); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+applyEnter(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "PC"); // l (aT, aM)
+// Elapsed time: 45 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, (String) null); // l (aT, aM)
+// Elapsed time: 12 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (O, cl)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ah (an, cl)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// al (cl): Save Project: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1083 ms.
+// 'd' command handler elapsed time: 3 seconds
+dismissDialog("Save Project"); // al (cl)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP(arch_TOP) (TOP.vhd)]", 1); // B (F, cl)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, (String) null); // l (aT, aM)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Shifter.v", 4); // k (j, cl)
+selectCodeEditor("Shifter.v", 314, 139); // cl (w, cl)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 14 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, test_Wrapper (test_Wrapper.v)]", 3); // B (F, cl)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, test_Wrapper (test_Wrapper.v)]", 3); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, test_MCycle (test_MCycle.v)]", 2); // B (F, cl)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, test_MCycle (test_MCycle.v)]", 2); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 5); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6); // B (F, cl)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (O, cl)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ah (an, cl)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// al (cl): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (al)
+// by (cl):  Save Constraints : addNotify
+// e (cl):  Run Simulation : addNotify
+dismissDialog("Save Project"); // al (cl)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: launch_simulation 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim' 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [SIM-utils-51] Simulation object is 'sim_1' 
+// Tcl Message: INFO: [SIM-utils-54] Inspecting design source files for 'test_Wrapper' in fileset 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design 
+// Tcl Message: INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim' 
+// Tcl Message: "xvlog --incr --relax -prj test_Wrapper_vlog.prj" 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 676.836 ; gain = 0.000 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '7' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim' 
+// Tcl Message: "xelab -wto c07ee8f3d0a846fbbc7f43e1a4a4c588 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_Wrapper_behav xil_defaultlib.test_Wrapper xil_defaultlib.glbl -log elaborate.log" 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds INFO: [USF-XSim-99] Step results log file:'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/pigir/Desktop/NUS/Yr4s1/CG3207/Lab/Lab4/ProcessorIntel/lab2temp/lab2temp.sim/sim_1/behav/xsim/elaborate.log' file for more information. ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:23 . Memory (MB): peak = 687.777 ; gain = 10.941 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+// 'd' command handler elapsed time: 42 seconds
+// Elapsed time: 38 seconds
+selectButton("OptionPane.button", "OK"); // JButton (A, G)
+// a (cl): Critical Messages: addNotify
+// Elapsed time: 19 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (a)
+dismissDialog("Critical Messages"); // a (cl)

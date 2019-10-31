@@ -105,7 +105,6 @@ module ARM(
     // ALU signals
     wire [31:0] Src_AE ;
     wire [31:0] Src_BE ;
-    reg [3:0] ALUControlD ;
     //wire [31:0] ALUResult ;
     wire [3:0] ALUFlags ;
     
@@ -131,6 +130,7 @@ module ARM(
     //Pipelining registers
     //D registers
     reg [31:0] InstrD;
+    wire [3:0] ALUControlD;
     //E stage registers
     reg [31:0] InstrE;
     reg PCSE; //1
@@ -140,13 +140,13 @@ module ARM(
     reg [3:0] ALUControlE;
     reg MemtoRegE; //1
     reg ALUSrcE; //1
-    reg PCSrcE; //1
-    reg RegWriteE; //1
-    reg MemWriteE; //1
+    wire PCSrcE; //1
+    wire RegWriteE; //1
+    wire MemWriteE; //1
     reg [3:0] CondE;
     reg NoWriteE;
     wire [31:0] WriteDataE;
-    reg [31:0] ALUResultE;
+    wire [31:0] ALUResultE;
     reg [31:0] ExtImmE;
     reg [31:0] RD1E;
     reg [31:0] RD2E;
@@ -189,7 +189,7 @@ module ARM(
         InstrD <= InstrF;
     end
     // E block
-    always@(PCSD, RegWD, MemWD, FlagWD, ALUControlD, MemtoRegD, ALUSrcD, NoWriteD)
+    always@(*)
     begin 
         InstrE <= InstrD;
         PCSE <= PCSD;
@@ -207,7 +207,7 @@ module ARM(
         WA3E <= InstrD[15:12];
     end
     //M block 
-    always@(PCSrcE, RegWriteE, MemWriteE, MemtoRegE)
+    always@(*)
     begin 
         PCSrcM <= PCSrcE;
         RegWriteM <= RegWriteE;
