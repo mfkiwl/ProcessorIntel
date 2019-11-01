@@ -51,32 +51,32 @@ module ARM(
     
     // RegFile signals
     //wire CLK ;
-    wire WE3 ;
-    wire [3:0] A1 ;
-    wire [3:0] A2 ;
-    wire [3:0] A3 ;
-    wire [31:0] WD3 ;
-    wire [31:0] R15 ;
-    wire [31:0] RD1D ;
-    wire [31:0] RD2D ;
+    wire WE3;
+    wire [3:0] A1;
+    wire [3:0] A2;
+    wire [3:0] A3;
+    wire [31:0] WD3;
+    wire [31:0] R15;
+    wire [31:0] RD1D;
+    wire [31:0] RD2D;
     
     // Extend Module signals
-    wire [1:0] ImmSrcD ;
-    wire [23:0] InstrImm ;
-    wire [31:0] ExtImmD ;
+    wire [1:0] ImmSrcD;
+    wire [23:0] InstrImm;
+    wire [31:0] ExtImmD;
     
     // Decoder signals
-    wire [3:0] Rd ;
-    wire [1:0] Op ;
-    wire [5:0] Funct ;
+    wire [3:0] Rd;
+    wire [1:0] Op;
+    wire [5:0] Funct;
     wire [3:0] MChecker;
     //wire PCS ;
     //wire RegW ;
     //wire MemW ;
-    wire MemtoRegD ;
-    wire ALUSrcD ;
+    wire MemtoRegD;
+    wire ALUSrcD;
     //wire [1:0] ImmSrc ;
-    wire [1:0] RegSrcD ;
+    wire [1:0] RegSrcD;
     //wire NoWrite ;
     //wire [1:0] ALUControl ;
     //wire [1:0] FlagW ;
@@ -84,48 +84,48 @@ module ARM(
     // CondLogic signals
     //wire CLK ;
     wire [31:0] PCPlus8D;
-    wire PCSD ;
-    wire RegWD ;
-    wire NoWriteD ;
-    wire MemWD ;
-    wire [1:0] FlagWD ;
-    wire [3:0] CondD ;
+    wire PCSD;
+    wire RegWD;
+    wire NoWriteD;
+    wire MemWD;
+    wire [1:0] FlagWD;
+    wire [3:0] CondD;
     //wire [3:0] ALUFlags,
-    wire PCSrc ;
-    wire RegWrite ; 
+    wire PCSrc;
+    wire RegWrite; 
     wire Carry;
     //wire MemWrite
        
     // Shifter signals
-    wire [1:0] Sh ;
-    wire [4:0] Shamt5 ;
-    wire [31:0] ShIn ;
-    wire [31:0] ShOut ;
+    wire [1:0] Sh;
+    wire [4:0] Shamt5;
+    wire [31:0] ShIn;
+    wire [31:0] ShOut;
     
     // ALU signals
-    wire [31:0] Src_AE ;
-    wire [31:0] Src_BE ;
+    wire [31:0] Src_AE;
+    wire [31:0] Src_BE;
     //wire [31:0] ALUResult ;
-    wire [3:0] ALUFlags ;
+    wire [3:0] ALUFlags;
     
     // ProgramCounter signals
     //wire CLK ;
     //wire RESET ;
-    wire WE_PC ;    
-    wire [31:0] PC_IN ;
+    wire WE_PC;    
+    wire [31:0] PC_IN;
     //wire [31:0] PC ; 
     
     // MCycle signals
-    wire MStart ;
-    wire [1:0] MCycleOp ;
-    wire Busy ;
-    wire [31:0] Result1 ;
-    wire [31:0] Result2 ;
+    wire MStart = 0;
+    wire [1:0] MCycleOp;
+    wire Busy;
+    wire [31:0] Result1;
+    wire [31:0] Result2;
         
     // Other internal signals here
-    wire [31:0] PCPlus4F ;
-    wire [31:0] PCPlus8 ;
-    wire [31:0] ResultW ;
+    wire [31:0] PCPlus4F;
+    wire [31:0] PCPlus8;
+    wire [31:0] ResultW;
     
     //Pipelining registers
     //D registers
@@ -164,8 +164,8 @@ module ARM(
     reg RegWriteW;
     reg MemtoRegW;
     reg [31:0] ReadDataW;
-    reg [3:0] WA3W = 0 ;
-    reg [31:0] ALUOutW = 0;
+    reg [3:0] WA3W;
+    reg [31:0] ALUOutW;
     
     // datapath connections here
     assign WE_PC = 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
@@ -181,50 +181,97 @@ module ARM(
     assign WE3 = RegWriteW;
     assign PCPlus8D = PCPlus4F;
     assign ALUOutM = ALUResultM;
+   
     
     //pipeline registers datapath connection
     //D block
-    always@(*)
+    always@(posedge CLK)
     begin
+        
         InstrD <= InstrF;
     end
     // E block
-    always@(*)
+    always@(posedge CLK)
     begin 
-        InstrE <= InstrD;
-        PCSE <= PCSD;
-        RegWE <= RegWD;
-        MemWE <= MemWD;
-        FlagWE <= FlagWD;
-        ALUControlE <= ALUControlD;
-        MemtoRegE <= MemtoRegD;
-        ALUSrcE <= ALUSrcD;
-        NoWriteE <= NoWriteD;
-        ExtImmE <= ExtImmD;
-        CondE <= CondD;
-        RD1E <= RD1D;
-        RD2E <= RD2D;
-        WA3E <= InstrD[15:12];
+        if(RESET)
+        begin
+            InstrE <= 0;
+            PCSE <= 0;
+            RegWE <= 0;
+            MemWE <= 0;
+            FlagWE <= 0;
+            ALUControlE <= 0;
+            MemtoRegE <= 0;
+            ALUSrcE <= 0;
+            NoWriteE <= 0;
+            ExtImmE <= 0;
+            CondE <= 0;
+            RD1E <= 0;
+            RD2E <= 0;
+            WA3E <= 0;
+        end
+        else 
+        begin
+            InstrE <= InstrD;
+            PCSE <= PCSD;
+            RegWE <= RegWD;
+            MemWE <= MemWD;
+            FlagWE <= FlagWD;
+            ALUControlE <= ALUControlD;
+            MemtoRegE <= MemtoRegD;
+            ALUSrcE <= ALUSrcD;
+            NoWriteE <= NoWriteD;
+            ExtImmE <= ExtImmD;
+            CondE <= CondD;
+            RD1E <= RD1D;
+            RD2E <= RD2D;
+            WA3E <= InstrD[15:12];
+        end
     end
     //M block 
-    always@(*)
+    always@(posedge CLK)
     begin 
-        PCSrcM <= PCSrcE;
-        RegWriteM <= RegWriteE;
-        MemWriteM <= MemWriteE;
-        MemtoRegM <= MemtoRegE;
-        ALUResultM <= ALUResultE;
-        WA3M <= WA3E;
+        if(RESET)
+        begin
+            PCSrcM <= 0;
+            RegWriteM <= 0;
+            MemWriteM <= 0;
+            MemtoRegM <= 0;
+            ALUResultM <= 0;
+            WA3M <= 0;
+        end
+        else 
+        begin
+            PCSrcM <= PCSrcE;
+            RegWriteM <= RegWriteE;
+            MemWriteM <= MemWriteE;
+            MemtoRegM <= MemtoRegE;
+            ALUResultM <= ALUResultE;
+            WA3M <= WA3E;
+        end
     end
     //W block
-    always@(PCSrcM, RegWriteM, MemtoRegM)
+    always@(posedge CLK)
     begin
-        PCSrcW <= PCSrcM;
-        RegWriteW <= RegWriteM;
-        MemtoRegW <= MemtoRegM;
-        ReadDataW <=ReadDataM;
-        ALUOutW <= ALUOutM;
-        WA3W <= WA3M;
+        if(RESET)
+        begin
+            PCSrcW <= 0;
+            RegWriteW <= 0;
+            MemtoRegW <= 0;
+            ReadDataW <= 0;
+            ALUOutW <= 0;
+            WA3W <= 0;
+        end
+        else 
+        begin
+            PCSrcW <= PCSrcM;
+            RegWriteW <= RegWriteM;
+            MemtoRegW <= MemtoRegM;
+            ReadDataW <=ReadDataM;
+            ALUOutW <= ALUOutM;
+            WA3W <= WA3M;
+        end
+        
     end
     // Instantiate RegFile
     RegFile RegFile1( 
