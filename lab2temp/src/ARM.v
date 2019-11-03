@@ -101,6 +101,7 @@ module ARM(
     wire [4:0] Shamt5;
     wire [31:0] ShIn;
     wire [31:0] ShOut;
+    wire [31:0] newShOut;
     
     // ALU signals
     wire [31:0] Src_AE;
@@ -131,6 +132,8 @@ module ARM(
     //D registers
     reg [31:0] InstrD;
     wire [3:0] ALUControlD;
+    wire [3:0] RA1D;
+    wire [3:0] RA2D;
     //E stage registers
     reg [31:0] InstrE;
     reg PCSE; //1
@@ -151,6 +154,8 @@ module ARM(
     reg [31:0] RD1E;
     reg [31:0] RD2E;
     reg [3:0] WA3E;
+    reg [3:0] RA1E;
+    reg [3:0] RA2E;
     
     //M stage registers
     reg PCSrcM;
@@ -158,6 +163,7 @@ module ARM(
     reg MemtoRegM;
     wire [31:0] ALUOutM;
     reg [3:0] WA3M;
+    reg [3:0] RA2M;
     
     // W stage registers
     reg PCSrcW;
@@ -167,33 +173,48 @@ module ARM(
     reg [3:0] WA3W;
     reg [31:0] ALUOutW;
     
+    // Data Hazard Wires
+    wire Match_1E_M;
+    wire Match_2E_M;
+    wire Match_1E_W;
+    wire Match_2E_W;
+    wire [1:0] ForwardAE;
+    wire [1:0] ForwardBE;
+    wire ForwardM;
+    wire StallF = 0;
+    wire StallD = 0;
+    wire FlushE = 0;
+    wire Match_12D_E;
+    wire ldrstall;
+    wire FlushD = 0;
+    
     // datapath connections here
     assign WE_PC = 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
 
     assign PCPlus4F = PC + 4;
     assign PCPlus8 = PC + 8;
     
-    assign A1 = (RegSrcD[0] == 0) ? ((MStart == 0) ? InstrD[19:16] : InstrD[11:8]) : 15;
-    assign A2 = (RegSrcD[1] == 0) ? InstrD[3:0] : InstrD[15:12];
-    assign A3 = WA3W; // if MUL A3 = Instr[19:16]
+    assign RA1D = (RegSrcD[0] == 0) ? ((MStart == 0) ? InstrD[19:16] : InstrD[11:8]) : 15;
+    assign RA2D = (RegSrcD[1] == 0) ? InstrD[3:0] : InstrD[15:12];
+//    assign A3 = WA3W; // if MUL A3 = Instr[19:16]
     assign WD3 = ResultW;
-    assign R15 = PCPlus8D;
+    assign R15 = PCPlus8D + 4;
     assign WE3 = RegWriteW;
     assign PCPlus8D = PCPlus4F;
     assign ALUOutM = ALUResultM;
    
     
-    //pipeline registers datapath connection
-    //D block
-    always@(posedge CLK)
+    // pipeline registers datapath connection
+    // F to D block
+    always@(posedge CLK & !(StallF == 1))
     begin
         
         InstrD <= InstrF;
     end
-    // E block
-    always@(posedge CLK)
+    // D to E block
+    always@(posedge CLK & !(StallD == 1))
     begin 
-        if(RESET)
+        if(RESET || FlushD)
         begin
             InstrE <= 0;
             PCSE <= 0;
@@ -206,9 +227,11 @@ module ARM(
             NoWriteE <= 0;
             ExtImmE <= 0;
             CondE <= 0;
-            RD1E <= 0;
-            RD2E <= 0;
-            WA3E <= 0;
+//            RD1E <= 0;
+//            RD2E <= 0;
+//            WA3E <= 0;
+//            RA1E <= 0;
+//            RA2E <= 0;
         end
         else 
         begin
@@ -226,19 +249,22 @@ module ARM(
             RD1E <= RD1D;
             RD2E <= RD2D;
             WA3E <= InstrD[15:12];
+            RA1E <= RA1D;
+            RA2E <= RA2D;
         end
     end
-    //M block 
+    // E to M block 
     always@(posedge CLK)
     begin 
-        if(RESET)
+        if(RESET || FlushE)
         begin
             PCSrcM <= 0;
             RegWriteM <= 0;
             MemWriteM <= 0;
             MemtoRegM <= 0;
             ALUResultM <= 0;
-            WA3M <= 0;
+//            WA3M <= 0;
+//            RA2M <= 0;
         end
         else 
         begin
@@ -248,9 +274,10 @@ module ARM(
             MemtoRegM <= MemtoRegE;
             ALUResultM <= ALUResultE;
             WA3M <= WA3E;
+            RA2M <= RA2E;
         end
     end
-    //W block
+    // M to W block
     always@(posedge CLK)
     begin
         if(RESET)
@@ -260,7 +287,7 @@ module ARM(
             MemtoRegW <= 0;
             ReadDataW <= 0;
             ALUOutW <= 0;
-            WA3W <= 0;
+//            WA3W <= 0;
         end
         else 
         begin
@@ -273,12 +300,35 @@ module ARM(
         end
         
     end
+    
+    // Data Hazard Block
+    // Data Forwarding
+    assign Match_1E_M = (RA1E == WA3M) ;
+    assign Match_2E_M = (RA2E == WA3M) ;
+    assign Match_1E_W = (RA1E == WA3W) ;
+    assign Match_2E_W = (RA1E == WA3W  ) ; 
+    assign ForwardAE = (Match_1E_M & RegWriteM) ? 2'b10 : (Match_1E_W & RegWriteW) ? 2'b01 : 2'b00 ;
+    assign ForwardBE = (Match_2E_M & RegWriteM) ? 2'b10 : (Match_2E_W & RegWriteW) ? 2'b01 : 2'b00 ;
+    
+    // Memory-Memory Copy
+    assign ForwardM = (RA2M == WA3W) & MemWriteM & MemtoRegW & RegWriteW ;
+    assign A3 = (ForwardM) ? RA2M : WA3W ; 
+    
+    // Stalling Circuitry
+    assign Match_12D_E = (RA1D == WA3E) || (RA2D == WA3E); // similanjiao why is this X when RA2D is X
+    assign ldrstall = Match_12D_E & MemtoRegE & RegWriteE ;
+    assign FlushE = ldrstall || PCSrcE ;
+    assign FlushD = PCSrcE ;
+    assign StallD = FlushE ;
+    assign StallF = StallD ;
+    
+    
     // Instantiate RegFile
     RegFile RegFile1( 
                     CLK,
                     WE3,
-                    A1,
-                    A2,
+                    RA1D,
+                    RA2D,
                     A3,
                     WD3,
                     R15,
@@ -350,9 +400,10 @@ module ARM(
                     ShIn,
                     ShOut
                 );
-    
-    assign Src_AE = RD1E;
-    assign Src_BE = (ALUSrcE == 0) ? ShOut : ExtImmE;
+
+    assign Src_AE = (ForwardAE == 2'b00) ? RD1E : (ForwardAE == 2'b01) ? WA3W : WA3M;
+    assign newShOut =  (ForwardBE == 2'b00) ? ShOut : (ForwardBE == 2'b01) ? WA3W : WA3M;
+    assign Src_BE = (ALUSrcE == 0) ? newShOut : ExtImmE;
     
     // Instantiate ALU        
     ALU ALU1(
@@ -364,8 +415,8 @@ module ARM(
                     ALUFlags
                 );                
     
+//    assign PC_IN = !(StallF == 1) ? (PCSrcW == 1) ? ResultW : PCPlus4F : PC;
     assign PC_IN = (PCSrcW == 1) ? ResultW : PCPlus4F;
-    
     // Instantiate ProgramCounter    
     ProgramCounter ProgramCounter1(
                     CLK,
@@ -373,10 +424,11 @@ module ARM(
                     WE_PC,    
                     PC_IN,
                     Busy,
+                    StallF,
                     PC  
                 );
                 
-     assign WriteDataE = RD2E;
+     assign WriteDataE = newShOut;
      assign ResultW = (MemtoRegW == 1) ? ReadDataW : ((MStart) ? Result1 : ALUOutW);
      
      // Instantiate MCycle

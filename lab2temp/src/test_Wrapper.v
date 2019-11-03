@@ -33,7 +33,7 @@ module test_Wrapper #(
 	reg  CONSOLE_IN_valid = 0;
 	wire CONSOLE_IN_ack;
 	reg  RESET = 0;					
-	reg  CLK_undiv = 0;				
+	reg  CLK_undiv = 0;			
 	
 	// Instantiate UUT
 	Wrapper dut(DIP, PB, LED_OUT, LED_PC, SEVENSEGHEX, CONSOLE_OUT, CONSOLE_OUT_ready, CONSOLE_OUT_valid, CONSOLE_IN, CONSOLE_IN_valid, CONSOLE_IN_ack, RESET, CLK_undiv) ;
