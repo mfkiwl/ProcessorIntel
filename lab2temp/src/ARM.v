@@ -54,7 +54,7 @@ module ARM(
     wire WE3;
     wire [3:0] A1;
     wire [3:0] A2;
-    wire [3:0] A3;
+    reg[3:0] A3;
     wire [31:0] WD3;
     wire [31:0] R15;
     wire [31:0] RD1D;
@@ -93,7 +93,7 @@ module ARM(
     //wire [3:0] ALUFlags,
     wire PCSrc;
     wire RegWrite; 
-    wire Carry;
+//    wire Carry;
     //wire MemWrite
        
     // Shifter signals
@@ -156,6 +156,7 @@ module ARM(
     reg [3:0] WA3E;
     reg [3:0] RA1E;
     reg [3:0] RA2E;
+    wire CarryE;
     
     //M stage registers
     reg PCSrcM;
@@ -174,19 +175,20 @@ module ARM(
     reg [31:0] ALUOutW;
     
     // Data Hazard Wires
-    wire Match_1E_M;
-    wire Match_2E_M;
-    wire Match_1E_W;
-    wire Match_2E_W;
-    wire [1:0] ForwardAE;
-    wire [1:0] ForwardBE;
-    wire ForwardM;
-    wire StallF = 0;
-    wire StallD = 0;
-    wire FlushE = 0;
-    wire Match_12D_E;
-    wire ldrstall;
-    wire FlushD = 0;
+    reg Match_1E_M;
+    reg Match_2E_M;
+    reg Match_1E_W;
+    reg Match_2E_W;
+    reg [1:0] ForwardAE;
+    reg [1:0] ForwardBE;
+    reg ForwardM;
+    reg StallF = 0;
+    reg StallD = 0;
+    reg FlushE = 0;
+    reg Match_12D_E;
+    reg ldrstall;
+    reg FlushD = 0;
+    wire ResultM ;
     
     // datapath connections here
     assign WE_PC = 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
@@ -198,7 +200,7 @@ module ARM(
     assign RA2D = (RegSrcD[1] == 0) ? InstrD[3:0] : InstrD[15:12];
 //    assign A3 = WA3W; // if MUL A3 = Instr[19:16]
     assign WD3 = ResultW;
-    assign R15 = PCPlus8D + 4;
+    assign R15 = PCPlus8D;
     assign WE3 = RegWriteW;
     assign PCPlus8D = PCPlus4F;
     assign ALUOutM = ALUResultM;
@@ -206,15 +208,19 @@ module ARM(
     
     // pipeline registers datapath connection
     // F to D block
-    always@(posedge CLK & !(StallF == 1))
+    always@(posedge CLK)
     begin
-        
-        InstrD <= InstrF;
+        if (RESET || FlushD) begin
+            InstrD <= 0 ;
+        end
+        if (~StallD) begin
+            InstrD <= InstrF;
+        end
     end
     // D to E block
-    always@(posedge CLK & !(StallD == 1))
+    always@(posedge CLK)
     begin 
-        if(RESET || FlushD)
+        if(RESET || FlushE)
         begin
             InstrE <= 0;
             PCSE <= 0;
@@ -227,11 +233,11 @@ module ARM(
             NoWriteE <= 0;
             ExtImmE <= 0;
             CondE <= 0;
-//            RD1E <= 0;
-//            RD2E <= 0;
-//            WA3E <= 0;
-//            RA1E <= 0;
-//            RA2E <= 0;
+            RD1E <= 0;
+            RD2E <= 0;
+            WA3E <= 0;
+            RA1E <= 0;
+            RA2E <= 0;
         end
         else 
         begin
@@ -256,15 +262,15 @@ module ARM(
     // E to M block 
     always@(posedge CLK)
     begin 
-        if(RESET || FlushE)
+        if(RESET)
         begin
             PCSrcM <= 0;
             RegWriteM <= 0;
             MemWriteM <= 0;
             MemtoRegM <= 0;
             ALUResultM <= 0;
-//            WA3M <= 0;
-//            RA2M <= 0;
+            WA3M <= 0;
+            RA2M <= 0;
         end
         else 
         begin
@@ -302,26 +308,54 @@ module ARM(
     end
     
     // Data Hazard Block
-    // Data Forwarding
-    assign Match_1E_M = (RA1E == WA3M) ;
-    assign Match_2E_M = (RA2E == WA3M) ;
-    assign Match_1E_W = (RA1E == WA3W) ;
-    assign Match_2E_W = (RA1E == WA3W  ) ; 
-    assign ForwardAE = (Match_1E_M & RegWriteM) ? 2'b10 : (Match_1E_W & RegWriteW) ? 2'b01 : 2'b00 ;
-    assign ForwardBE = (Match_2E_M & RegWriteM) ? 2'b10 : (Match_2E_W & RegWriteW) ? 2'b01 : 2'b00 ;
-    
-    // Memory-Memory Copy
-    assign ForwardM = (RA2M == WA3W) & MemWriteM & MemtoRegW & RegWriteW ;
-    assign A3 = (ForwardM) ? RA2M : WA3W ; 
-    
-    // Stalling Circuitry
-    assign Match_12D_E = (RA1D == WA3E) || (RA2D == WA3E); // similanjiao why is this X when RA2D is X
-    assign ldrstall = Match_12D_E & MemtoRegE & RegWriteE ;
-    assign FlushE = ldrstall || PCSrcE ;
-    assign FlushD = PCSrcE ;
-    assign StallD = FlushE ;
-    assign StallF = StallD ;
-    
+    always @ (*) begin
+        // Data Forwarding
+        Match_1E_M = (RA1E == WA3M) ;
+        Match_2E_M = (RA2E == WA3M) ;
+        Match_1E_W = (RA1E == WA3W) ;
+        Match_2E_W = (RA2E == WA3W) ;
+        if (Match_1E_M == 1 && RegWriteM == 1) begin
+            ForwardAE = 2'b10 ;
+        end 
+        else if (Match_1E_W == 1 && RegWriteW == 1) begin
+            ForwardAE = 2'b01 ;
+        end
+        else begin
+            ForwardAE = 2'b00 ;
+        end
+        if (Match_2E_M == 1 && RegWriteM == 1) begin
+            ForwardBE = 2'b10 ;
+        end 
+        else if (Match_2E_W == 1 && RegWriteW == 1) begin
+            ForwardBE = 2'b01 ;
+        end
+        else begin
+            ForwardBE = 2'b00 ;
+        end
+//        ForwardAE = (Match_1E_M & RegWriteM) ? 2'b10 : (Match_1E_W & RegWriteW) ? 2'b01 : 2'b00 ;
+//        ForwardBE = (Match_2E_M & RegWriteM) ? 2'b10 : (Match_2E_W & RegWriteW) ? 2'b01 : 2'b00 ;
+        
+        // Memory-Memory Copy
+        ForwardM = (RA2M == WA3W) & MemWriteM & MemtoRegW & RegWriteW ;
+        A3 = (ForwardM) ? RA2M : WA3W ; 
+        
+        // Stalling Circuitry
+        if (RA1D == WA3E) begin
+            Match_12D_E = 1 ;
+        end
+        else if (RA2D == WA3E) begin
+            Match_12D_E = 1 ;
+        end
+        else begin
+            Match_12D_E = 0 ;
+        end
+//        Match_12D_E = (RA1D == WA3E) || (RA2D == WA3E); // similanjiao why is this X when RA2D is X
+        ldrstall = Match_12D_E & MemtoRegE & RegWriteE ;
+        FlushE = ldrstall || PCSrcE ;
+        FlushD = PCSrcE ;
+        StallD = FlushE ;
+        StallF = StallD ;
+    end
     
     // Instantiate RegFile
     RegFile RegFile1( 
@@ -386,7 +420,7 @@ module ARM(
                     PCSrcE,
                     RegWriteE,
                     MemWriteE,
-                    Carry
+                    CarryE
                 );
     
     assign Sh = InstrE[6:5];
@@ -401,8 +435,8 @@ module ARM(
                     ShOut
                 );
 
-    assign Src_AE = (ForwardAE == 2'b00) ? RD1E : (ForwardAE == 2'b01) ? WA3W : WA3M;
-    assign newShOut =  (ForwardBE == 2'b00) ? ShOut : (ForwardBE == 2'b01) ? WA3W : WA3M;
+    assign Src_AE = (ForwardAE == 2'b00) ? RD1E : (ForwardAE == 2'b01) ? ResultW : ResultM;
+    assign newShOut =  (ForwardBE == 2'b00) ? ShOut : (ForwardBE == 2'b01) ? ResultW : ResultM;
     assign Src_BE = (ALUSrcE == 0) ? newShOut : ExtImmE;
     
     // Instantiate ALU        
@@ -410,7 +444,7 @@ module ARM(
                     Src_AE,
                     Src_BE,
                     ALUControlE,
-                    Carry,
+                    CarryE,
                     ALUResultE,
                     ALUFlags
                 );                
@@ -430,6 +464,7 @@ module ARM(
                 
      assign WriteDataE = newShOut;
      assign ResultW = (MemtoRegW == 1) ? ReadDataW : ((MStart) ? Result1 : ALUOutW);
+     assign ResultM = (MemtoRegM == 1) ? ReadDataM : ALUOutM ;
      
      // Instantiate MCycle
      MCycle MCycle( 

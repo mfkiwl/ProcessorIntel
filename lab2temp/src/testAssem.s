@@ -26,7 +26,7 @@
 	ADC R7, R1, R2; R7 will be 4
 	BIC R8, R1, R2; R8 will be 1
 	EOR R9, R3, R4; R9 will be 5
-	MVN R9, R7; R9 will be FFFFFFFFB X
+	MVN R9, R7; R9 will be FFFFFFFFB
 	RSB R10, R3, R4; R10 will be 5
 	CMN R1, R2; C = 0
 	RSC R11, R3, R4; R11 will be 4
