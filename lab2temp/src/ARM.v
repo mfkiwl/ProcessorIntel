@@ -149,6 +149,7 @@ module ARM(
                     A3,
                     WD3,
                     R15,
+                    NoWrite,
                     RD1,
                     RD2,
                     bigRegBank    

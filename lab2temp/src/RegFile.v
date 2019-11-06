@@ -40,6 +40,7 @@ module RegFile(
     input [3:0] A3,
     input [31:0] WD3,
     input [31:0] R15,
+    input NoWrite,
     output [31:0] RD1,
     output [31:0] RD2,
     output [511:0] bigRegBank
@@ -57,7 +58,7 @@ module RegFile(
     // write
     always@(posedge CLK)
     begin
-        if((A3 != 4'b1111) & (WE3))
+        if((A3 != 4'b1111) & (WE3) & ~NoWrite)
             RegBank[A3] <= WD3 ;
     end
     
