@@ -165,6 +165,7 @@ module ARM(
     wire [31:0] ALUOutM;
     reg [3:0] WA3M;
     reg [3:0] RA2M;
+    reg NoWriteM;
     
     // W stage registers
     reg PCSrcW;
@@ -173,6 +174,7 @@ module ARM(
     reg [31:0] ReadDataW;
     reg [3:0] WA3W;
     reg [31:0] ALUOutW;
+    reg NoWriteW;
     
     // Data Hazard Wires
     reg Match_1E_M;
@@ -281,6 +283,7 @@ module ARM(
             ALUResultM <= ALUResultE;
             WA3M <= WA3E;
             RA2M <= RA2E;
+            NoWriteM <= NoWriteE;
         end
     end
     // M to W block
@@ -303,6 +306,7 @@ module ARM(
             ReadDataW <=ReadDataM;
             ALUOutW <= ALUOutM;
             WA3W <= WA3M;
+            NoWriteW <= NoWriteM;
         end
         
     end
@@ -366,6 +370,7 @@ module ARM(
                     A3,
                     WD3,
                     R15,
+                    NoWriteW,
                     RD1D,
                     RD2D,
                     bigRegBank    

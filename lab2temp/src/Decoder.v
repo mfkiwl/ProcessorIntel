@@ -117,6 +117,7 @@ module Decoder(
                     RegW = 0;
                     RegSrc = 2'bx1;
                     ALUOp = 0;
+                    NoWrite = 1;
                 end
              default:
                 begin
@@ -128,6 +129,7 @@ module Decoder(
                     RegW = 1'bx;
                     RegSrc = 2'bxx;
                     ALUOp = 1'bx;
+                    NoWrite = 1'bx;
                 end
             endcase
 
