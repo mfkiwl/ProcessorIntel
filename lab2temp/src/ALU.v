@@ -40,7 +40,7 @@ module ALU(
     reg [32:0] Src_A_comp ;
     reg [32:0] Src_B_comp ;
     reg [31:0] ALUResult_i ;
-    reg [32:0] C_0 ;
+    reg [32:0] C_0 = 0;
     wire N, Z, C ;
     reg V ;
     
@@ -73,7 +73,8 @@ module ALU(
             4'b0011: ALUResult_i <= Src_A | Src_B ;  // OR
             4'b0100: // ADC
                 begin
-                    ALUResult_i <= S_wider[31:0] + Carry;
+                    C_0[0] <= Carry;
+                    ALUResult_i <= S_wider[31:0];
                     V <= ( Src_A[31] ~^ Src_B[31] )  & ( Src_B[31] ^ S_wider[31] ); 
                 end
             4'b0101: // EOR TEQ
@@ -97,15 +98,21 @@ module ALU(
                 end
             4'b1010: // RSC
                 begin
-                    C_0[0] <= 1 ;  
-                    Src_A_comp <= {1'b0, ~ Src_A} + ~Carry;
+                    C_0[0] <= 1 ;
+                    if (~Carry) begin
+                        C_0 <= 0;
+                    end  
+                    Src_A_comp <= {1'b0, ~ Src_A};
                     ALUResult_i <= S_wider[31:0] ;
                     V <= ( Src_A[31] ^ Src_B[31] )  & ( Src_B[31] ~^ S_wider[31] ); 
                 end        
             4'b1011: // SBC
                 begin
-                    C_0[0] <= 1 ;  
-                    Src_B_comp <= {1'b0, ~ Src_B} + ~Carry;
+                    C_0[0] <= 1 ;
+                    if (~Carry) begin
+                        C_0 <= 0;
+                    end   
+                    Src_B_comp <= {1'b0, ~ Src_B};
                     ALUResult_i <= S_wider[31:0] ;
                     V <= ( Src_A[31] ^ Src_B[31] )  & ( Src_B[31] ~^ S_wider[31] ); 
                 end
