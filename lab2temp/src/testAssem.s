@@ -16,26 +16,26 @@
 ; ------- <code memory (ROM mapped to Instruction Memory) begins>
 ; Total number of instructions should not exceed 127 (126 excluding the last line 'halt B halt').
 
-	LDR R1, ONE;
-	LDR R2, TWO;
-	LDR R3, TEN;
-	LDR R4, FIFTEEN;
-	LDR R5, BIGNUM1;
-	LDR R6, BIGNUM2;
-	CMN R5, R6;
-	ADC R7, R1, R2; R7 will be 4
-	BIC R8, R1, R2; R8 will be 1
-	EOR R9, R3, R4; R9 will be 5
-	MVN R9, R7; R9 will be FFFFFFFFB
-	RSB R10, R3, R4; R10 will be 5
-	CMN R1, R2; C = 0
-	RSC R11, R3, R4; R11 will be 4
-	CMN R1, R2; C = 0
-	SBC R12, R4, R3; R12 will be 4
-	TEQ R5, R5; Z = 1
-	TST R4, R4; Z = 0
-LOOP
-	B LOOP
+	; LDR R1, ONE;
+	; LDR R2, TWO;
+	; LDR R3, TEN;
+	; LDR R4, FIFTEEN;
+	; LDR R5, BIGNUM1;
+	; LDR R6, BIGNUM2;
+	; CMN R5, R6;
+	; ADC R7, R1, R2; R7 will be 4
+	; BIC R8, R1, R2; R8 will be 1
+	; EOR R9, R3, R4; R9 will be 5
+	; MVN R9, R7; R9 will be FFFFFFFFB
+	; RSB R10, R3, R4; R10 will be 5
+	; CMN R1, R2; C = 0
+	; RSC R11, R3, R4; R11 will be 4
+	; CMN R1, R2; C = 0
+	; SBC R12, R4, R3; R12 will be 4
+	; TEQ R5, R5; Z = 1
+	; TST R4, R4; Z = 0
+; LOOP
+	; B LOOP
 
 
 

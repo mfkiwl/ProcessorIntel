@@ -26,6 +26,8 @@
 	AND R8, R7, R2 ; R8 should be 2
 LOOP
 	B LOOP
+	LDR R5, FIFTEEN;
+	LDR R6, TEN;
 
 
 
