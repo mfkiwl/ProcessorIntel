@@ -45,7 +45,7 @@ module ARM(
     output reg MemWriteM,
     output [31:0] PC,
     output reg [31:0] ALUResultM,
-    output [31:0] WriteDataM,
+    output reg [31:0] WriteData_Out,
     output [511:0] bigRegBank
     );
     
@@ -54,7 +54,7 @@ module ARM(
     wire WE3;
     wire [3:0] A1;
     wire [3:0] A2;
-    reg[3:0] A3;
+    wire [3:0] A3;
     wire [31:0] WD3;
     wire [31:0] R15;
     wire [31:0] RD1D;
@@ -166,6 +166,7 @@ module ARM(
     reg [3:0] WA3M;
     reg [3:0] RA2M;
     reg NoWriteM;
+    reg [31:0] WriteDataM;
     
     // W stage registers
     reg PCSrcW;
@@ -200,7 +201,7 @@ module ARM(
     
     assign RA1D = (RegSrcD[0] == 0) ? ((MStart == 0) ? InstrD[19:16] : InstrD[11:8]) : 15;
     assign RA2D = (RegSrcD[1] == 0) ? InstrD[3:0] : InstrD[15:12];
-//    assign A3 = WA3W; // if MUL A3 = Instr[19:16]
+    assign A3 = WA3W; // if MUL A3 = Instr[19:16]
     assign WD3 = ResultW;
     assign R15 = PCPlus8D;
     assign WE3 = RegWriteW;
@@ -284,6 +285,7 @@ module ARM(
             WA3M <= WA3E;
             RA2M <= RA2E;
             NoWriteM <= NoWriteE;
+            WriteDataM <= WriteDataE;
         end
     end
     // M to W block
@@ -336,12 +338,15 @@ module ARM(
         else begin
             ForwardBE = 2'b00 ;
         end
-//        ForwardAE = (Match_1E_M & RegWriteM) ? 2'b10 : (Match_1E_W & RegWriteW) ? 2'b01 : 2'b00 ;
-//        ForwardBE = (Match_2E_M & RegWriteM) ? 2'b10 : (Match_2E_W & RegWriteW) ? 2'b01 : 2'b00 ;
         
         // Memory-Memory Copy
         ForwardM = (RA2M == WA3W) & MemWriteM & MemtoRegW & RegWriteW ;
-        A3 = (ForwardM) ? RA2M : WA3W ; 
+        if (ForwardM) begin
+            WriteData_Out = ResultW ;
+        end
+        else begin
+            WriteData_Out = WriteDataM ;
+        end
         
         // Stalling Circuitry
         if (RA1D == WA3E) begin
@@ -353,7 +358,6 @@ module ARM(
         else begin
             Match_12D_E = 0 ;
         end
-//        Match_12D_E = (RA1D == WA3E) || (RA2D == WA3E); // similanjiao why is this X when RA2D is X
         ldrstall = Match_12D_E & MemtoRegE & RegWriteE ;
         FlushE = ldrstall || PCSrcE ;
         FlushD = PCSrcE ;
