@@ -37,7 +37,6 @@ module ProgramCounter(
     input RESET,
     input WE_PC,    // write enable
     input [31:0] PC_IN,
-    input Busy,
     output reg [31:0] PC = 0  
     );
     
@@ -45,7 +44,7 @@ module ProgramCounter(
     begin
         if(RESET)
             PC <= 0 ;
-        else if(WE_PC & ~Busy)
+        else if(WE_PC)
             PC <= PC_IN ;        
     end
     

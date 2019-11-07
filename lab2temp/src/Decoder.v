@@ -44,7 +44,7 @@ module Decoder(
     output reg ALUSrc,
     output reg [1:0] ImmSrc,
     output reg [1:0] RegSrc,
-    output reg NoWrite, //??
+    output reg NoWrite, 
     output reg [3:0] ALUControl,
     output reg [1:0] FlagW,
     output reg [1:0] MCycleOp,
@@ -95,7 +95,6 @@ module Decoder(
                     RegW = 0;
                     RegSrc = 2'b10;
                     ALUOp = 0;
-                    NoWrite = 0;
                 end 
                 else
                 begin
@@ -107,7 +106,6 @@ module Decoder(
                     RegW = 1;
                     RegSrc = 2'bx0;
                     ALUOp = 0;
-                    NoWrite = 0;
                 end     
             2'b10: // Branch
                 begin
@@ -119,7 +117,6 @@ module Decoder(
                     RegW = 0;
                     RegSrc = 2'bx1;
                     ALUOp = 0;
-                    NoWrite = 1;
                 end
              default:
                 begin
@@ -131,7 +128,6 @@ module Decoder(
                     RegW = 1'bx;
                     RegSrc = 2'bxx;
                     ALUOp = 1'bx;
-                    NoWrite = 1'bx;
                 end
             endcase
 
@@ -142,8 +138,14 @@ module Decoder(
         MStart = 0;
         if(ALUOp == 0)
         begin
-            ALUControl = 2'b00;
+            ALUControl = 4'b0;
             FlagW = 2'b00;
+            if (Branch == 0) begin
+                NoWrite = 0;
+            end
+            else begin
+                NoWrite = 1;
+            end
         end
         else 
         begin

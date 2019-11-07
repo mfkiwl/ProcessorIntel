@@ -128,7 +128,7 @@ module ARM(
     wire [31:0] Result ;
     
     // datapath connections here
-    assign WE_PC = 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
+    assign WE_PC = (Busy) ? 0 : 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
 
     assign PCPlus4 = PC + 4;
     assign PCPlus8 = PC + 8;
@@ -240,7 +240,6 @@ module ARM(
                     RESET,
                     WE_PC,    
                     PC_IN,
-                    Busy,
                     PC  
                 );
                 

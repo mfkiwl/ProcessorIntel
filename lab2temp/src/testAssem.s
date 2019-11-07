@@ -24,16 +24,33 @@
 	LDR R6, BIGNUM2;
 	CMN R5, R6;
 	ADC R7, R1, R2; R7 will be 4
+	ADDS R14, R5, R6; this sets the C flag
+	ADC R6, R2, R3; R6 will be 13
+	SUBS R14, R4, R3; this sets C flag
+	SBC R12, R4, R3; R12 will be 5 as C flag is set
+	SUB R13, R4, R3; R13 should be equal to R12, 5
 	BIC R8, R1, R2; R8 will be 1
 	EOR R9, R3, R4; R9 will be 5
-	MVN R9, R7; R9 will be FFFFFFFFB X
-	RSB R10, R3, R4; R10 will be 5
+	MVN R10, R7; R10 will be FFFFFFFFB 
+	RSB R0, R3, R4; R0 will be 5, 15-10
 	CMN R1, R2; C = 0
 	RSC R11, R3, R4; R11 will be 4
 	CMN R1, R2; C = 0
-	SBC R12, R4, R3; R12 will be 4
-	TEQ R5, R5; Z = 1
-	TST R4, R4; Z = 0
+	SBC R5, R4, R3; R5 will be 4
+	LDR R1, FIFTEEN;
+	
+LOOP1
+	SUB R1, R1, #1; R1 will deduct from 15 to 10
+	TEQ R1, R3; ; set z flag
+	BNE LOOP1
+	; ends when R1 = 10
+	LDR R2, TEN;
+LOOP2
+	SUB R2, R2, #1;
+	TST R2, R3 ; set z flag
+	BNE LOOP2
+	; ends when R2 = 5
+	MOV R4, R2; R4 will become 5 now
 LOOP
 	B LOOP
 

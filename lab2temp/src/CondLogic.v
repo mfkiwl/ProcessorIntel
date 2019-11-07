@@ -53,7 +53,7 @@ module CondLogic(
     
     assign Carry = C;
     assign PCSrc = PCS & CondEx;
-    assign RegWrite = RegW & CondEx;
+    assign RegWrite = RegW & CondEx & ~NoWrite;
     assign MemWrite = MemW & CondEx;
     
     always@(Cond, N, Z, C, V)

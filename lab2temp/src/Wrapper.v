@@ -96,7 +96,6 @@ reg [31:0] DATA_VAR_MEM     [0:127]; // data (variable) memory
 reg [8:0] i, j;
 
 
-
 //----------------------------------------------------------------
 // Instruction Memory
 //----------------------------------------------------------------
@@ -109,18 +108,30 @@ initial begin
 			INSTR_MEM[5] = 32'hE59F6234; 
 			INSTR_MEM[6] = 32'hE1750006; 
 			INSTR_MEM[7] = 32'hE0A17002; 
-			INSTR_MEM[8] = 32'hE1C18002; 
-			INSTR_MEM[9] = 32'hE0239004; 
-			INSTR_MEM[10] = 32'hE1E09007; 
-			INSTR_MEM[11] = 32'hE063A004; 
-			INSTR_MEM[12] = 32'hE1710002; 
-			INSTR_MEM[13] = 32'hE0E3B004; 
-			INSTR_MEM[14] = 32'hE1710002; 
-			INSTR_MEM[15] = 32'hE0C4C003; 
-			INSTR_MEM[16] = 32'hE1350005; 
-			INSTR_MEM[17] = 32'hE1140004; 
-			INSTR_MEM[18] = 32'hEAFFFFFE; 
-			for(i = 19; i < 128; i = i+1) begin 
+			INSTR_MEM[8] = 32'hE095E006; 
+			INSTR_MEM[9] = 32'hE0A26003; 
+			INSTR_MEM[10] = 32'hE054E003; 
+			INSTR_MEM[11] = 32'hE0C4C003; 
+			INSTR_MEM[12] = 32'hE044D003; 
+			INSTR_MEM[13] = 32'hE1C18002; 
+			INSTR_MEM[14] = 32'hE0239004; 
+			INSTR_MEM[15] = 32'hE1E0A007; 
+			INSTR_MEM[16] = 32'hE0630004; 
+			INSTR_MEM[17] = 32'hE1710002; 
+			INSTR_MEM[18] = 32'hE0E3B004; 
+			INSTR_MEM[19] = 32'hE1710002; 
+			INSTR_MEM[20] = 32'hE0C45003; 
+			INSTR_MEM[21] = 32'hE59F11E8; 
+			INSTR_MEM[22] = 32'hE2411001; 
+			INSTR_MEM[23] = 32'hE1310003; 
+			INSTR_MEM[24] = 32'h1AFFFFFC; 
+			INSTR_MEM[25] = 32'hE59F21DC; 
+			INSTR_MEM[26] = 32'hE2422001; 
+			INSTR_MEM[27] = 32'hE1120003; 
+			INSTR_MEM[28] = 32'h1AFFFFFC; 
+			INSTR_MEM[29] = 32'hE1A04002; 
+			INSTR_MEM[30] = 32'hEAFFFFFE; 
+			for(i = 31; i < 128; i = i+1) begin 
 				INSTR_MEM[i] = 32'h0; 
 			end
 end
@@ -166,9 +177,6 @@ initial begin
 				DATA_CONST_MEM[i] = 32'h0; 
 			end
 end
-
-
-
 
 //----------------------------------------------------------------
 // Data (Variable) Memory
