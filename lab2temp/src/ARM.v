@@ -194,7 +194,7 @@ module ARM(
     wire [31:0] ResultM ;
     
     // datapath connections here
-    assign WE_PC = 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
+    assign WE_PC = (StallF || Busy) ? 0 : 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
 
     assign PCPlus4F = PC + 4;
     assign PCPlus8 = PC + 8;
@@ -203,9 +203,9 @@ module ARM(
     assign RA2D = (RegSrcD[1] == 0) ? InstrD[3:0] : InstrD[15:12];
     assign A3 = WA3W; // if MUL A3 = Instr[19:16]
     assign WD3 = ResultW;
-    assign R15 = PCPlus8D;
     assign WE3 = RegWriteW;
     assign PCPlus8D = PCPlus4F;
+    assign R15 = PCPlus8D;
     assign ALUOutM = ALUResultM;
    
     
@@ -459,15 +459,13 @@ module ARM(
                 );                
     
 //    assign PC_IN = !(StallF == 1) ? (PCSrcW == 1) ? ResultW : PCPlus4F : PC;
-    assign PC_IN = (PCSrcW == 1) ? ResultW : PCPlus4F;
+    assign PC_IN = (PCSrcE == 1) ? ALUResultE : PCPlus4F;
     // Instantiate ProgramCounter    
     ProgramCounter ProgramCounter1(
                     CLK,
                     RESET,
                     WE_PC,    
                     PC_IN,
-                    Busy,
-                    StallF,
                     PC  
                 );
                 
