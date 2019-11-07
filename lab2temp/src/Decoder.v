@@ -44,7 +44,7 @@ module Decoder(
     output reg ALUSrc,
     output reg [1:0] ImmSrc,
     output reg [1:0] RegSrc,
-    output reg NoWrite, //??
+    output reg NoWrite, 
     output reg [3:0] ALUControl,
     output reg [1:0] FlagW,
     output reg [1:0] MCycleOp,
@@ -82,7 +82,8 @@ module Decoder(
                    ImmSrc = 2'b00;
                    RegW = 1;
                    RegSrc = 2'bx0;
-                   ALUOp = 1; 
+                   ALUOp = 1;
+                   NoWrite = 0; 
                 end
             2'b01: // Memory Instruction
                 if(Funct[0] == 0)
@@ -95,6 +96,7 @@ module Decoder(
                     RegW = 0;
                     RegSrc = 2'b10;
                     ALUOp = 0;
+                    NoWrite = 0;
                 end 
                 else
                 begin
@@ -106,6 +108,7 @@ module Decoder(
                     RegW = 1;
                     RegSrc = 2'bx0;
                     ALUOp = 0;
+                    NoWrite = 0;
                 end     
             2'b10: // Branch
                 begin

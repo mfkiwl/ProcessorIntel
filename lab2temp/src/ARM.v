@@ -86,7 +86,7 @@ module ARM(
     wire [31:0] PCPlus8D;
     wire PCSD;
     wire RegWD;
-    wire NoWriteD;
+    wire NoWriteD = 0;
     wire MemWD;
     wire [1:0] FlagWD;
     wire [3:0] CondD;
@@ -190,7 +190,7 @@ module ARM(
     reg FlushE = 0;
     reg Match_12D_E;
     reg ldrstall;
-    reg FlushD = 0;
+    reg FlushD;
     wire [31:0] ResultM ;
     
     // datapath connections here
@@ -216,7 +216,7 @@ module ARM(
         if (RESET || FlushD) begin
             InstrD <= 0 ;
         end
-        if (~StallD) begin
+        else if (~StallD) begin
             InstrD <= InstrF;
         end
     end
@@ -225,22 +225,28 @@ module ARM(
     begin 
         if(RESET || FlushE)
         begin
-            InstrE <= 0;
+//            InstrE <= 0;
             PCSE <= 0;
             RegWE <= 0;
             MemWE <= 0;
             FlagWE <= 0;
-            ALUControlE <= 0;
+//            ALUControlE <= 0;
             MemtoRegE <= 0;
-            ALUSrcE <= 0;
-            NoWriteE <= 0;
-            ExtImmE <= 0;
-            CondE <= 0;
-            RD1E <= 0;
-            RD2E <= 0;
-            WA3E <= 0;
-            RA1E <= 0;
-            RA2E <= 0;
+            NoWriteE <= 1;
+//            ALUSrcE <= 0;
+//            NoWriteE <= 0;
+//            ExtImmE <= 0;
+//            CondE <= 0;
+//            RD1E <= 0;
+//            RD2E <= 0;
+//            WA3E <= 0;
+//            RA1E <= 0;
+//            RA2E <= 0;
+//            PCSE <= 0;
+//            RegWE <= 0;
+//            MemWE <= 0;
+//            FlagWE <= 0;
+//            MemtoRegE <= 0;
         end
         else 
         begin
@@ -359,9 +365,14 @@ module ARM(
             Match_12D_E = 0 ;
         end
         ldrstall = Match_12D_E & MemtoRegE & RegWriteE ;
-        FlushE = ldrstall || PCSrcE ;
+        if (ldrstall == 1 || PCSrcE == 1) begin
+            FlushE = 1;
+        end
+        else begin
+            FlushE = 0;
+        end
         FlushD = PCSrcE ;
-        StallD = FlushE ;
+        StallD = ldrstall ;
         StallF = StallD ;
     end
     
