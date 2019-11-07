@@ -191,7 +191,7 @@ module ARM(
     reg Match_12D_E;
     reg ldrstall;
     reg FlushD = 0;
-    wire ResultM ;
+    wire [31:0] ResultM ;
     
     // datapath connections here
     assign WE_PC = 1 ; // Will need to control it for multi-cycle operations (Multiplication, Division) and/or Pipelining with hazard hardware.
